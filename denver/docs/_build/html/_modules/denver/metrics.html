@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.metrics &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../denver/denver.html">Denver Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>denver.metrics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for denver.metrics</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8</span>
+<span class="c1"># Copyright (c) 2021 by Phuc Phan</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">seqeval.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span> <span class="k">as</span> <span class="n">seqeval_f1</span>
+<span class="kn">from</span> <span class="nn">allennlp.training.metrics.metric</span> <span class="kn">import</span> <span class="n">Metric</span>
+<span class="kn">from</span> <span class="nn">seqeval.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span> <span class="k">as</span> <span class="n">seqeval_report</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span>
+<span class="kn">from</span> <span class="nn">seqeval.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span> <span class="k">as</span> <span class="n">seqeval_precision</span><span class="p">,</span> <span class="n">recall_score</span> <span class="k">as</span> <span class="n">seqeval_recall</span>
+
+<span class="kn">from</span> <span class="nn">denver.utils.print_utils</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># pylint: disable=invalid-name</span>
+
+
+<div class="viewcode-block" id="Metrics"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics">[docs]</a><span class="k">class</span> <span class="nc">Metrics</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tps</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fps</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tns</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fns</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Metrics.add_tp"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.add_tp">[docs]</a>    <span class="k">def</span> <span class="nf">add_tp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tps</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="Metrics.add_tn"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.add_tn">[docs]</a>    <span class="k">def</span> <span class="nf">add_tn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tns</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="Metrics.add_fp"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.add_fp">[docs]</a>    <span class="k">def</span> <span class="nf">add_fp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fps</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="Metrics.add_fn"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.add_fn">[docs]</a>    <span class="k">def</span> <span class="nf">add_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fns</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="Metrics.get_tp"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.get_tp">[docs]</a>    <span class="k">def</span> <span class="nf">get_tp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_tps</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tps</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Metrics.get_tn"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.get_tn">[docs]</a>    <span class="k">def</span> <span class="nf">get_tn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_tns</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tns</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Metrics.get_fp"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.get_fp">[docs]</a>    <span class="k">def</span> <span class="nf">get_fp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_fps</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fps</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Metrics.get_fn"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.get_fn">[docs]</a>    <span class="k">def</span> <span class="nf">get_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_fns</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fns</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Metrics.precision"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.precision">[docs]</a>    <span class="k">def</span> <span class="nf">precision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+                <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fp</span><span class="p">(</span><span class="n">class_name</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="mf">0.0</span></div>
+
+<div class="viewcode-block" id="Metrics.recall"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.recall">[docs]</a>    <span class="k">def</span> <span class="nf">recall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fn</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+                <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fn</span><span class="p">(</span><span class="n">class_name</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="mf">0.0</span></div>
+
+<div class="viewcode-block" id="Metrics.f_score"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.f_score">[docs]</a>    <span class="k">def</span> <span class="nf">f_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">recall</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+                <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">recall</span><span class="p">(</span><span class="n">class_name</span><span class="p">))</span>
+                <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">recall</span><span class="p">(</span><span class="n">class_name</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="mf">0.0</span></div>
+
+<div class="viewcode-block" id="Metrics.accuracy"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.accuracy">[docs]</a>    <span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fn</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tn</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+            <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tn</span><span class="p">(</span><span class="n">class_name</span><span class="p">))</span>
+                <span class="o">/</span> <span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_tp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fp</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fn</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tn</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="mf">0.0</span></div>
+
+<div class="viewcode-block" id="Metrics.micro_avg_f_score"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.micro_avg_f_score">[docs]</a>    <span class="k">def</span> <span class="nf">micro_avg_f_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_score</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Metrics.macro_avg_f_score"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.macro_avg_f_score">[docs]</a>    <span class="k">def</span> <span class="nf">macro_avg_f_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">class_f_scores</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">f_score</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_f_scores</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="n">macro_f_score</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">class_f_scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_f_scores</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">macro_f_score</span></div>
+
+<div class="viewcode-block" id="Metrics.micro_avg_accuracy"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.micro_avg_accuracy">[docs]</a>    <span class="k">def</span> <span class="nf">micro_avg_accuracy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Metrics.macro_avg_accuracy"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.macro_avg_accuracy">[docs]</a>    <span class="k">def</span> <span class="nf">macro_avg_accuracy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">class_accuracy</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_accuracy</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">class_accuracy</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_accuracy</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="mf">0.0</span></div>
+
+<div class="viewcode-block" id="Metrics.micro_avg_precision"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.micro_avg_precision">[docs]</a>    <span class="k">def</span> <span class="nf">micro_avg_precision</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Metrics.macro_avg_precision"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.macro_avg_precision">[docs]</a>    <span class="k">def</span> <span class="nf">macro_avg_precision</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">class_precision</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_precision</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">class_precision</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_precision</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="mf">0.0</span></div>
+    
+<div class="viewcode-block" id="Metrics.micro_avg_recall"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.micro_avg_recall">[docs]</a>    <span class="k">def</span> <span class="nf">micro_avg_recall</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">recall</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Metrics.macro_avg_recall"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.macro_avg_recall">[docs]</a>    <span class="k">def</span> <span class="nf">macro_avg_recall</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">class_recall</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">recall</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_recall</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">class_recall</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_recall</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="mf">0.0</span></div>
+
+<div class="viewcode-block" id="Metrics.get_classes"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.Metrics.get_classes">[docs]</a>    <span class="k">def</span> <span class="nf">get_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+        <span class="n">all_classes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">[</span>
+                    <span class="nb">list</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">keys</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_tps</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_fps</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_tns</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_fns</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">all_classes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">class_name</span> <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="n">all_classes</span> <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">]</span>
+        <span class="n">all_classes</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        
+        <span class="k">return</span> <span class="n">all_classes</span></div></div>
+
+
+<div class="viewcode-block" id="get_metric"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.get_metric">[docs]</a><span class="k">def</span> <span class="nf">get_metric</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Function to get metrics evaluation.</span>
+<span class="sd">    </span>
+<span class="sd">    :param y_pred: Ground truth (correct) target values.</span>
+<span class="sd">    :param y_true: Estimated targets as returned by a classifier.</span>
+<span class="sd">    </span>
+<span class="sd">    :returns: acc, f1, precision, recall</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">acc</span>       <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">f1</span>        <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+    <span class="n">recall</span>    <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span>  <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+    <span class="n">report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">acc</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">report</span></div>
+
+<div class="viewcode-block" id="OnetNetMetrics"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.OnetNetMetrics">[docs]</a><span class="k">class</span> <span class="nc">OnetNetMetrics</span><span class="p">(</span><span class="n">Metric</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class Metics for OneNet model. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A class OneNetMetrics.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># These will hold per label span counts.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_false_positives</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_true_negatives</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_false_negatives</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="c1"># self.tag_metrics = Metrics(&quot;tagger&quot;, beta=1)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">intent_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intent_labels</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tags_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tags_labels</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">nlu_predictions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+                 <span class="n">nlu_labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> 
+                 <span class="n">intent_predictions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+                 <span class="n">intent_labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> 
+                 <span class="n">tags_predictions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+                 <span class="n">tags_labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param predictions: ``torch.Tensor``, required. A tensor of predictions of shape (batch_size, sequence_length, num_classes).</span>
+<span class="sd">        :param gold_labels: ``torch.Tensor``, required. A tensor of integer class label of shape (batch_size, sequence_length). </span>
+<span class="sd">                            It must be the same shape as the ``predictions`` tensor without the ``num_classes`` dimension.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># TODO: NLU</span>
+
+        <span class="k">for</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">nlu_predictions</span><span class="p">,</span> <span class="n">nlu_labels</span><span class="p">):</span> 
+            <span class="k">for</span> <span class="n">dat</span> <span class="ow">in</span> <span class="n">prediction</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">prediction</span><span class="p">[</span><span class="n">dat</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">dat</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">label</span> <span class="ow">or</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">span</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">label</span><span class="p">[</span><span class="n">dat</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_false_positives</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">for</span> <span class="n">dat</span> <span class="ow">in</span> <span class="n">label</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">label</span><span class="p">[</span><span class="n">dat</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">dat</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prediction</span> <span class="ow">or</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">span</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prediction</span><span class="p">[</span><span class="n">dat</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_false_negatives</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+        <span class="c1"># TODO: INTENT</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intent_labels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">intent_labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intent_predictions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">intent_predictions</span><span class="p">)</span>
+
+        <span class="c1"># TODO: SEQUENCE TAGGERS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tags_labels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tags_labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tags_predictions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tags_predictions</span><span class="p">)</span>
+
+<div class="viewcode-block" id="OnetNetMetrics.get_metric"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.OnetNetMetrics.get_metric">[docs]</a>    <span class="k">def</span> <span class="nf">get_metric</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reset</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Function get metric, return a Dict per label containing following the span based metrics: \n</span>
+<span class="sd">        precision : float \n</span>
+<span class="sd">        recall : float \n</span>
+<span class="sd">        f1-measure : float \n</span>
+<span class="sd">        Additionally, an ``overall`` key is included, which provides the precision, \n</span>
+<span class="sd">        recall and f1-measure for all spans. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Compute the precision, recall and f1 for all spans jointly.</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">f1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_metrics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">_false_positives</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">_false_negatives</span><span class="p">)</span>
+
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="p">:</span>
+            <span class="n">intent_classes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intent_labels</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The numbers of intent classes: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">intent_classes</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">ic_acc</span><span class="p">,</span> <span class="n">ic_f1</span><span class="p">,</span> <span class="n">ic_precision</span><span class="p">,</span> <span class="n">ic_recall</span><span class="p">,</span> <span class="n">ic_report</span> <span class="o">=</span> <span class="n">get_metric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intent_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">intent_predictions</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intent_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">intent_predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">intent_classes</span><span class="p">)</span>
+                <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">intent_classes</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;cm_onenet&quot;</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;./evaluation&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">tag_precision</span> <span class="o">=</span> <span class="n">seqeval_precision</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tags_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tags_predictions</span><span class="p">)</span>
+            <span class="n">tag_f1</span> <span class="o">=</span> <span class="n">seqeval_f1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tags_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tags_predictions</span><span class="p">)</span>
+            <span class="n">tag_recall</span> <span class="o">=</span> <span class="n">seqeval_recall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tags_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tags_predictions</span><span class="p">)</span>
+            <span class="n">tag_report</span> <span class="o">=</span> <span class="n">seqeval_report</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tags_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tags_predictions</span><span class="p">)</span>
+
+            <span class="c1"># tag_f1_micro = self.tag_metrics.micro_avg_f_score()</span>
+            <span class="c1"># tag_precision = self.tag_metrics.precision()</span>
+            <span class="c1"># tag_recall = self.tag_metrics.recall()</span>
+
+            <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;intent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;accucary&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ic_acc</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
+                <span class="s1">&#39;f1-score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ic_f1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
+                <span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ic_precision</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ic_recall</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;cls_detailed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ic_report</span>
+
+            <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;tags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;f1-score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">tag_f1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
+                <span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">tag_precision</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">tag_recall</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+            <span class="p">}</span>
+
+            <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;tags_detailed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tag_report</span>
+
+        <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;main_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span>
+        
+        <span class="k">if</span> <span class="n">reset</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_compute_metrics</span><span class="p">(</span><span class="n">true_positives</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">false_positives</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">false_negatives</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">precision</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">true_positives</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">true_positives</span> <span class="o">+</span> <span class="n">false_positives</span> <span class="o">+</span> <span class="mf">1e-13</span><span class="p">)</span>
+        <span class="n">recall</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">true_positives</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">true_positives</span> <span class="o">+</span> <span class="n">false_negatives</span> <span class="o">+</span> <span class="mf">1e-13</span><span class="p">)</span>
+        <span class="n">f1_measure</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="p">((</span><span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span> <span class="o">+</span> <span class="mf">1e-13</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1_measure</span>
+
+<div class="viewcode-block" id="OnetNetMetrics.reset"><a class="viewcode-back" href="../../denver/denver.metrics.html#denver.metrics.OnetNetMetrics.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_false_positives</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_false_negatives</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">intent_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intent_labels</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tags_labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tags_predictions</span> <span class="o">=</span> <span class="p">[]</span></div></div>
+
+        <span class="c1"># self.tag_metrics = Metrics(name=&quot;tagger&quot;)</span>
+
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

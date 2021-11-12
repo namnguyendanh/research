@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introduction &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Welcome to Denver’s Documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-this-is">What This Is</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-we-built-this">Why We Built This</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../denver/denver.html">Denver Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/user/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="introduction">
+<h1><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-this-is" id="id2">What This Is</a></p></li>
+<li><p><a class="reference internal" href="#why-we-built-this" id="id3">Why We Built This</a></p></li>
+<li><p><a class="reference internal" href="#architecture" id="id4">Architecture</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-this-is">
+<h2><a class="toc-backref" href="#id2">What This Is</a><a class="headerlink" href="#what-this-is" title="Permalink to this headline">¶</a></h2>
+<p>Wellcome to Denver in Language Understanding! This is a library and a toolbox produced by
+NLP Team, Ftech.AI that makes it easier to use about Language Understanding (LU). We present
+the idea of Denver as a flexible, extensible and easy to use toolbox which allows users to
+replicate, training the dialogue related experiments without writing code. Denver implements
+the “well-experimental“ module such as Intent Classification, Named Entity Recognition, FAQ
+with novel approach to deep learning building based on the high level of abstraction: Data
+types and declarative configuration files Data type abstraction allows for reusability of model
+and interface standard. Declarative model definition configuration files enable inexperienced
+users to obtain effective models and increase the productivity of expert users. Alongside
+these two innovations, Denver introduces the unified view of all the deep learning architecture
+called Encoder Fusion Decoder (EFD) that can be instantiated to perform a vast amount of machine
+learning in the dialogue domain. The innovations make it possible for engineers, sale team and
+product team member to adopt deep learning model for their task, replicate and move fast with
+experiments to satisfy fast-growing client ‘s requirements and data evolution.</p>
+</div>
+<div class="section" id="why-we-built-this">
+<h2><a class="toc-backref" href="#id3">Why We Built This</a><a class="headerlink" href="#why-we-built-this" title="Permalink to this headline">¶</a></h2>
+<p>Let’s have a retrospective about the blooming of AI recently and the main workhorse
+behind it: “Deep learning”.  Over the course of the last ten years, deep learning models
+have demonstrated to be highly effective in almost every machine learning task in different
+domains including (but not limited to) computer vision, natural language, speech, and recommendation.
+The wide adoption in both research and industry has been boosted by sophisticated software libraries
+such as Theano , TensorFLow, Keras, pytorch. Their main value has been to provide tensor
+algebra primitives with efficient implementations which, together with the massively parallel
+computation available on GPUs, enabled researchers to scale training to bigger datasets.
+Those software provided the standard implementation of automatic “gradient calculation“
+which greatly simplified the model implementation Researchers do not need to spend time
+re-implementing these basic building blocks from scratch and now having fast and reliable
+implementations of the same, were able to focus on models and architectures, which lead
+to the first wave of deep learning exposure. However; when coming to commercialized software,
+it is very difficult for researchers to deliver the product-ready software. not to mention,
+it is a really time consuming process if the researchers need to handle all the tasks
+from data preparation to model delivery. We claim that the second wave of deep learning
+expose should make it a democratization in which software developer, business analytics
+and broader audience to adopt the technology.</p>
+<a class="reference internal image-reference" href="../_images/history.png"><img alt="Alternative text" src="../_images/history.png" style="width: 800px;" /></a>
+<p>The outspread of application of artificial neural network architectures in a wide variety of
+tasks encourage the common practices regarding how to handle certain types of input
+information emerged. In other words, we got a more “unified“ view about the fundamental tasks in ML
+We claim that when modeling a particular data for a particular task the model architectures are
+unchanged while practitioners focus mainly for “data interfacing“. take an example in
+computer vision task and natural language processing task as an example to prove this
+observation. When faced with a computer vision problem, a practitioner preprocesses
+data using the pipeline that resizes images, augments them with some transformation
+and maps them into 3D tensors. Something similar happens for text data, where text
+is tokenized either into a list of words or characters or word pieces, a vocabulary with
+associated numerical IDs is collected and sentences are transformed into vectors of integers
+Denver, a deep learning toolbox that encapsulates the above idea, aims to provide the best
+practices from the internal team’s research work and take advantage of inheritance of code
+modularity. Denver makes it much easier for practitioners to compose their deep learning models
+by just declaring their data and task and to make code reusable, extensible and favor best practices.</p>
+<a class="reference internal image-reference" href="../_images/uview.png"><img alt="Alternative text" src="../_images/uview.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="architecture">
+<h2><a class="toc-backref" href="#id4">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p>In Denver, every model is defined in terms of encoders that encode different features of an input
+data point, a combiner which combines information coming from the different encoders,
+and decoders that decode the information from the combiner into one or more output features.
+This generic architecture is referred to as Encoders-Fusion-Decoders (EFD).</p>
+<a class="reference internal image-reference" href="../_images/efd.png"><img alt="Alternative text" src="../_images/efd.png" style="width: 800px;" /></a>
+<p>This architecture is introduced because it maps naturally most of the architectures of deep learning m
+odels and allows for modular composition. This characteristic, enabled by the data type abstraction,
+allows for defining models by just declaring the data types of the input and output features involved
+in the task and assembling standard sub-modules accordingly rather than writing a full model from scratch.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Denver’s Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tutorial: Building IC models &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial: Building NER models" href="tutorial_ner.html" />
+    <link rel="prev" title="Configuration File" href="../user/configs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial: Building IC models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ulmfitclassifier">ULMFITClassifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#training-a-model">Training a model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluate-a-model">Evaluate a model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-the-prediction">Get the prediction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../denver/denver.html">Denver Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tutorial: Building IC models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/tutorial_ic.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="tutorial-building-ic-models">
+<h1><a class="toc-backref" href="#id1">Tutorial: Building IC models</a><a class="headerlink" href="#tutorial-building-ic-models" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tutorial-building-ic-models" id="id1">Tutorial: Building IC models</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ulmfitclassifier" id="id2">ULMFITClassifier</a></p>
+<ul>
+<li><p><a class="reference internal" href="#training-a-model" id="id3">Training a model</a></p></li>
+<li><p><a class="reference internal" href="#evaluate-a-model" id="id4">Evaluate a model</a></p></li>
+<li><p><a class="reference internal" href="#get-the-prediction" id="id5">Get the prediction</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ulmfitclassifier">
+<h2><a class="toc-backref" href="#id2">ULMFITClassifier</a><a class="headerlink" href="#ulmfitclassifier" title="Permalink to this headline">¶</a></h2>
+<p>This page explains how to develop an Intent Classification (IC) model. So far, we have only
+provided a model ULMFITClassifier. The steps for development are as follows:</p>
+<ul class="simple">
+<li><p><strong>Install library:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">denver</span>  <span class="c1"># if existed.</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">minio</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">ftech</span><span class="o">.</span><span class="n">ai</span><span class="o">/</span><span class="n">resources</span><span class="o">-</span><span class="n">denver</span><span class="o">-</span><span class="n">v0</span><span class="mf">.0.2</span><span class="o">-</span><span class="mi">75854855</span><span class="o">/</span><span class="n">denver</span><span class="o">-</span><span class="mf">0.0.2</span><span class="n">b0</span><span class="o">-</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+<div class="section" id="training-a-model">
+<h3><a class="toc-backref" href="#id3">Training a model</a><a class="headerlink" href="#training-a-model" title="Permalink to this headline">¶</a></h3>
+<p><strong>1. Create a DenverDataSource</strong></p>
+<div class="admonition-note admonition">
+<p class="admonition-title"><strong>NOTE</strong></p>
+<p>For the separate model, like <code class="docutils literal notranslate"><span class="pre">ULMFITClassifier</span></code> or <code class="docutils literal notranslate"><span class="pre">FlairSequenceTagger</span></code>, to build a
+<code class="docutils literal notranslate"><span class="pre">DenverDataSource</span></code> from a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file or a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, we need to define <code class="docutils literal notranslate"><span class="pre">label_cols</span></code>
+for the label of that task.</p>
+</div>
+<ul class="simple">
+<li><p>From csv file:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">denver.data.data_source</span> <span class="kn">import</span> <span class="n">DenverDataSource</span>
+
+<span class="n">train_path</span> <span class="o">=</span> <span class="s1">&#39;./data/salebot/train.csv&#39;</span>
+<span class="n">test_path</span> <span class="o">=</span> <span class="s1">&#39;./data/salebot/test.csv&#39;</span>
+
+<span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">train_path</span><span class="o">=</span><span class="n">train_path</span><span class="p">,</span>
+                                        <span class="n">test_path</span><span class="o">=</span><span class="n">test_path</span><span class="p">,</span>
+                                        <span class="n">text_cols</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                                        <span class="n">label_cols</span><span class="o">=</span><span class="s1">&#39;intent&#39;</span><span class="p">,</span>
+                                        <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>From DataFrame:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">train_df</span><span class="o">=</span><span class="n">train_df</span><span class="p">,</span>
+                                    <span class="n">test_df</span><span class="o">=</span><span class="n">test_df</span><span class="p">,</span>
+                                    <span class="n">text_cols</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                                    <span class="n">label_cols</span><span class="o">=</span><span class="s1">&#39;intent&#39;</span><span class="p">,</span>
+                                    <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>2. Fine-tuning</strong></p>
+<ul class="simple">
+<li><p>You can also fine-tune Langue model from any other corpus before fine-tune with train dataset (Optional):</p></li>
+</ul>
+<pre class="literal-block"><strong>corpus</strong>
+    data_split_1.txt
+    data_split_2.txt
+    ...
+    data_split_N.txt</pre>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">denver.trainers.language_model_trainer</span> <span class="kn">import</span> <span class="n">LanguageModelTrainer</span>
+
+<span class="n">data_folder</span> <span class="o">=</span> <span class="s1">&#39;./data/data_babe/&#39;</span>
+<span class="n">lm_fns_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;./models/ic/vi_wt_babe&#39;</span><span class="p">,</span> <span class="s1">&#39;./models/ic/vi_wt_vocab_babe&#39;</span><span class="p">]</span>
+
+<span class="n">lm_trainer</span> <span class="o">=</span> <span class="n">LanguageModelTrainer</span><span class="p">(</span><span class="n">pretrain</span><span class="o">=</span><span class="s1">&#39;wiki&#39;</span><span class="p">)</span>
+<span class="n">lm_trainer</span><span class="o">.</span><span class="n">fine_tuning_from_folder</span><span class="p">(</span><span class="n">data_folder</span><span class="o">=</span><span class="n">data_folder</span><span class="p">,</span>
+                                   <span class="n">lm_fns</span><span class="o">=</span><span class="n">lm_fns_path</span><span class="p">,</span>
+                                   <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+                                   <span class="n">num_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                   <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>From train data:</p></li>
+</ul>
+<p>Before starting to train the classify model, we must be fine-tuning language model with the training
+dataset that used to train the classify model.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">denver.trainers.language_model_trainer</span> <span class="kn">import</span> <span class="n">LanguageModelTrainer</span>
+
+<span class="n">lm_trainer</span> <span class="o">=</span> <span class="n">LanguageModelTrainer</span><span class="p">(</span><span class="n">pretrain</span><span class="o">=</span><span class="s1">&#39;babe&#39;</span><span class="p">)</span>
+<span class="n">lm_trainer</span><span class="o">.</span><span class="n">fine_tuning_from_df</span><span class="p">(</span><span class="n">data_df</span><span class="o">=</span><span class="n">data_source</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                            <span class="n">batch_size</span><span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
+                            <span class="n">num_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                            <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+                            <span class="n">moms</span><span class="o">=</span><span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+                            <span class="n">drop_mult</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>We have provided pretrained language models including wiki and babe. You can use by replacing
+<code class="docutils literal notranslate"><span class="pre">pretrain='babe'</span></code> or <code class="docutils literal notranslate"><span class="pre">pretrain='wiki'</span></code> or <code class="docutils literal notranslate"><span class="pre">pretrain=None</span></code> or pass the list path to the pretrained
+language model same as <a class="reference external" href="../denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer.fine_tuning_from_folder">lm_fns_path</a> in the example above.</p>
+<p><strong>3. Train the classify model</strong></p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">denver.learners</span> <span class="kn">import</span> <span class="n">ULMFITClassificationLearner</span>
+<span class="kn">from</span> <span class="nn">denver.trainers.trainer</span> <span class="kn">import</span> <span class="n">ModelTrainer</span>
+
+<span class="n">learn</span> <span class="o">=</span> <span class="n">ULMFITClassificationLearner</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;training&#39;</span><span class="p">,</span> <span class="n">data_source</span><span class="o">=</span><span class="n">data_source</span><span class="p">)</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span><span class="n">learn</span><span class="o">=</span><span class="n">learn</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">base_path</span><span class="o">=</span><span class="s1">&#39;./models/intent/&#39;</span><span class="p">,</span>
+            <span class="n">model_file</span><span class="o">=</span><span class="s1">&#39;denver.pkl&#39;</span><span class="p">,</span>
+            <span class="n">learning_rate</span><span class="o">=</span><span class="mf">2e-2</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+            <span class="n">num_epochs</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="evaluate-a-model">
+<h3><a class="toc-backref" href="#id4">Evaluate a model</a><a class="headerlink" href="#evaluate-a-model" title="Permalink to this headline">¶</a></h3>
+<p>Evaluate a model with a test dataset.</p>
+<ul class="simple">
+<li><p>Use the model after trained with test dataset in data_source:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># evaluate the test set in data source</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>Maybe, you can also evalute with any test dataset from .csv file:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">test_path</span> <span class="o">=</span> <span class="s1">&#39;./data/test.csv&#39;</span>
+
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">test_path</span><span class="p">,</span>
+                        <span class="n">text_cols</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                        <span class="n">label_cols</span><span class="o">=</span><span class="s1">&#39;intent&#39;</span><span class="p">,</span>
+                        <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>Load model from a path:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Path to test dataset</span>
+<span class="n">test_path</span> <span class="o">=</span> <span class="s1">&#39;./data/test.csv&#39;</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;./models/denver-vicls.pkl&#39;</span>
+
+<span class="n">learn</span> <span class="o">=</span> <span class="n">ULMFITClassificationLearner</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;inference&quot;</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">)</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">test_path</span><span class="p">,</span>
+                        <span class="n">text_cols</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                        <span class="n">label_cols</span><span class="o">=</span><span class="s1">&#39;intent&#39;</span><span class="p">,</span>
+                        <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="get-the-prediction">
+<h3><a class="toc-backref" href="#id5">Get the prediction</a><a class="headerlink" href="#get-the-prediction" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Get prediction for a given sample</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Làm bằng chất liệu j vậy shop&quot;</span>
+
+<span class="c1"># Output</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sample</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+                        <span class="n">with_dropout</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Output to rasa-format</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">sample</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+                    <span class="n">with_dropout</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>Get the predictions from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or a file <code class="docutils literal notranslate"><span class="pre">.csv</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Batch prediction</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">predict_on_df</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;./data/test.csv&#39;</span><span class="p">,</span>
+                            <span class="n">text_cols</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                            <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Predicts each sample from a DataFrame</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_on_df_by_step</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+                                    <span class="n">text_cols</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                                    <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="n">rm_special_token</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="n">rm_url</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="n">rm_emoji</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">data_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;out_file.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>In additional, we are provided an get <code class="docutils literal notranslate"><span class="pre">uncertainty-score</span></code> method, use as following:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Làm bằng chất liệu j vậy shop&quot;</span>
+
+<span class="n">uncertainty_score</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">get_uncertainty_score</span><span class="p">(</span><span class="n">sample</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">n_times</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>In addition, you can also refer to the illustrative examples <a class="reference external" href="https://gitlab.ftech.ai/nlp/research/denver_core/-/tree/develop/tutorials">here</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial_ner.html" class="btn btn-neutral float-right" title="Tutorial: Building NER models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../user/configs.html" class="btn btn-neutral float-left" title="Configuration File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

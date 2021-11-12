@@ -1,0 +1,85 @@
+# -*- coding: utf-8
+# Copyright (c) 2021 by Phuc Phan
+
+TEXT                        = 'text'
+LABEL                       = 'label'
+INTENT_NAME                 = 'intent'
+ENTITIES_NAME               = 'entities'
+INTENT_LABEL                = 'intent_label'
+ENTITIES_LABEL              = 'tags_label'
+
+ACCURACY                    = 'acc'
+PRECISION                   = 'precision'
+RECALL                      = 'recall'
+F1_SCORE                    = 'f1'
+MAIN_SCORE                  = 'main_score'
+INTENT_REPORT               = 'intents_report'
+ENTITIES_REPORT             = 'entities_report'
+LOSS                        = 'loss'
+
+HIPEROPT                    = 'HIPEROPT'
+STRATEGY                    = 'strategy'
+EXECUTOR                    = 'executor'
+RUN                         = 'run'
+PROCESS                     = 'process'
+GOAL                        = 'goal'
+PARAMETERS                  = 'parameters'
+NUM_WORKERs                 = 'num_workers'
+MINIMIZE                    = 'minimize'
+MAXIMIZE                    = 'maximize'
+SAMPLER                     = 'sampler'
+METRIC                      = 'metric'
+
+NAME                        = 'name'
+TYPE                        = 'type'
+CATEGORY                    = 'category'
+FLOAT                       = 'float'
+INT                         = 'int'
+REAL                        = 'real'
+SPACE                       = 'space'
+LINEAR                      = 'linear'
+RANGE                       = 'range'
+
+PARALLEL                    = 'parallel'
+SERIAL                      = 'serial'
+GRID_SAMPLER                = 'grid'
+RANDOM_SAMPLER              = 'random'
+PYSOT_SAMPLER               = 'pysot'
+NUM_SAMPLES                 = 'num_samples'
+
+DATASET                     = 'DATASET'
+TRAIN_PATH                  = 'train_path'
+TEST_PATH                   = 'test_path'
+TEXT_COL                    = 'text_col'
+LABEL_COL                   = 'label_col'
+INTENT_COL                  = 'intent_col'
+TAG_COL                     = 'tag_col'
+PRE_PROCESSING              = 'pre_processing'
+LOWERCASE_TOKEN             = 'lowercase_token'
+REMOVE_SPECIAL_TOKEN        = 'rm_special_token'
+REMOVE_URL                  = 'rm_url'
+REMOVE_EMOJI                = 'rm_emoji'
+BALANCE                     = 'balance'
+DATA_AUGMENTATION           = 'data_augmentation'
+
+MODEL                       = 'MODEL'
+INPUT_FEATURES              = 'input_features'
+LEVEL                       = 'level'
+ENCODER                     = 'encoder'
+DECODER                     = 'decoder'
+ARGS                        = 'args'
+OUTPUT_FEATURES             = 'output_features'
+TRAINING_PARAMS             = 'TRAINING_PARAMS'
+BASE_PATH                   = 'base_path'
+MODEL_FILE                  = 'model_file'
+IS_SAVE_BEST_MODEL          = 'is_save_best_model'
+HYPER_PARAMS                = 'hyper_params'
+
+# Name model 
+ULMFIT_CLASSIFIER           = ['ulmfit_classifier', 'ulmfitclassifier', 'ulmfit']
+FLAIR_SEQUENCE_TAGGER       = ['flair_sequence_tagger', 'flairsequencetagger', 'flair']
+ONENET_NLU                  = ['onenet', 'onenetnlu', 'onenet_nlu']
+
+# Mode 
+TRAINING_MODE               = 'training'
+INFERENCE_MODE              = 'inference'

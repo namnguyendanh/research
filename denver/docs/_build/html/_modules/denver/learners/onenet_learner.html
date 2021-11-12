@@ -1,0 +1,1025 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.learners.onenet_learner &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../denver/denver.html">Denver Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>denver.learners.onenet_learner</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for denver.learners.onenet_learner</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8</span>
+<span class="c1"># Copyright (c) 2021 by Phuc Phan</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">denver</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pformat</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">softmax</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Iterable</span>
+
+<span class="kn">from</span> <span class="nn">allennlp.common</span> <span class="kn">import</span> <span class="n">Params</span>
+<span class="kn">from</span> <span class="nn">allennlp.data</span> <span class="kn">import</span> <span class="n">Instance</span>
+<span class="kn">from</span> <span class="nn">allennlp.common.tqdm</span> <span class="kn">import</span> <span class="n">Tqdm</span>
+<span class="kn">from</span> <span class="nn">allennlp.data</span> <span class="kn">import</span> <span class="n">DatasetReader</span>
+<span class="kn">from</span> <span class="nn">allennlp.nn</span> <span class="kn">import</span> <span class="n">util</span> <span class="k">as</span> <span class="n">nn_util</span>
+<span class="kn">from</span> <span class="nn">allennlp.data.tokenizers</span> <span class="kn">import</span> <span class="n">Token</span>
+<span class="kn">from</span> <span class="nn">allennlp.data.iterators</span> <span class="kn">import</span> <span class="n">DataIterator</span>
+<span class="kn">from</span> <span class="nn">allennlp.common.checks</span> <span class="kn">import</span> <span class="n">check_for_gpu</span>
+<span class="kn">from</span> <span class="nn">allennlp.models.archival</span> <span class="kn">import</span> <span class="n">load_archive</span>
+<span class="kn">from</span> <span class="nn">allennlp.common.util</span> <span class="kn">import</span> <span class="n">prepare_environment</span>
+<span class="kn">from</span> <span class="nn">allennlp.models.model</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">_DEFAULT_WEIGHTS</span>
+<span class="kn">from</span> <span class="nn">allennlp.training.util</span> <span class="kn">import</span> <span class="n">create_serialization_dir</span>
+<span class="kn">from</span> <span class="nn">allennlp.training.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span><span class="p">,</span> <span class="n">TrainerPieces</span>
+<span class="kn">from</span> <span class="nn">allennlp.models.archival</span> <span class="kn">import</span> <span class="n">archive_model</span><span class="p">,</span> <span class="n">CONFIG_NAME</span>
+
+<span class="kn">from</span> <span class="nn">denver.constants</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">denver.models</span> <span class="kn">import</span> <span class="n">onenet</span> 
+<span class="kn">from</span> <span class="nn">denver</span> <span class="kn">import</span> <span class="n">MODE_SUPPORTED</span>
+<span class="kn">from</span> <span class="nn">denver.data</span> <span class="kn">import</span> <span class="n">normalize</span>
+<span class="kn">from</span> <span class="nn">denver.data</span> <span class="kn">import</span> <span class="n">DenverDataSource</span>
+<span class="kn">from</span> <span class="nn">denver.learners</span> <span class="kn">import</span> <span class="n">DenverLearner</span>
+<span class="kn">from</span> <span class="nn">denver.utils.utils</span> <span class="kn">import</span> <span class="n">convert_to_BIO</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># pylint: disable=invalid-name</span>
+
+<div class="viewcode-block" id="OnenetLearner"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner">[docs]</a><span class="k">class</span> <span class="nc">OnenetLearner</span><span class="p">(</span><span class="n">DenverLearner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class OnenetLearner. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data_source</span><span class="p">:</span> <span class="n">DenverDataSource</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;training&#39;</span><span class="p">,</span> 
+        <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+        <span class="n">rnn_type</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;lstm&#39;</span><span class="p">,</span> 
+        <span class="n">bidirectional</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">word_embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">word_pretrained_embedding</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;vi-glove-50d&#39;</span><span class="p">,</span> 
+        <span class="n">char_embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
+        <span class="n">char_encoder_type</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;cnn&#39;</span><span class="p">,</span>
+        <span class="n">num_filters</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> 
+        <span class="n">ngram_filter_sizes</span><span class="p">:</span> <span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+        <span class="n">conv_layer_activation</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> 
+        <span class="n">device</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialize a OneNet Learner</span>
+
+<span class="sd">        :param data_source: A DenverDataSource class</span>
+<span class="sd">        :param mode: Mode in {inference, training}</span>
+<span class="sd">        :param model_path: The path to model, (mode = inference)</span>
+<span class="sd">        :param dropout: dropout probability</span>
+<span class="sd">        :param rnn_type: The type of Recurrent network</span>
+<span class="sd">        :param bidirectional: If True, using bidirectional RNN, otherwise, use unidirectional RNN</span>
+<span class="sd">        :param hidden_size: The number of hidden states in RNN</span>
+<span class="sd">        :param num_layers: The number of RNN layers</span>
+<span class="sd">        :param word_embedding_dim: The number dimension of word embedding</span>
+<span class="sd">        :param word_pretrained_embedding: The name of pretrained word embedding </span>
+<span class="sd">                                          or the path to the pretrained word embeding (glove)</span>
+<span class="sd">        :param char_embedding_dim: The number dimension of char embedding</span>
+<span class="sd">        :param char_encoder_type: The type char encoder</span>
+<span class="sd">        :param num_filters: The number of filters (with char_encoder_type=&#39;cnn&#39;)</span>
+<span class="sd">        :param ngram_filter_sizes: The list numbers ngram filter sizes</span>
+<span class="sd">        :param conv_layer_activation: The type activation of conv layer</span>
+<span class="sd">        :param device: If &gt; using cuda:&lt;device&gt;, else use cpu</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">OnenetLearner</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1"># Verify mode option</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MODE_SUPPORTED</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Not support mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Please select 1 among these support modes: </span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODE_SUPPORTED</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_source</span> <span class="o">=</span> <span class="n">data_source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cuda_device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">denver</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">INFERENCE_MODE</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">model_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;MODE: `inference`, but `model_path` is None value.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Load the model from path: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_load_model</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">` not supplied or not found.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">PRETRAINED_WORD_EMBEDDINGs</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;vi-glove-50d&#39;</span><span class="p">:</span> <span class="s1">&#39;http://minio.dev.ftech.ai/resources-denver-v0.0.1-e2d5b5b7/viglove_50D.txt&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;vi-glove-100d&#39;</span><span class="p">:</span> <span class="s1">&#39;http://minio.dev.ftech.ai/resources-denver-v0.0.1-e2d5b5b7/viglove_100D.txt&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">configs</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">data_source</span><span class="o">.</span><span class="n">train</span><span class="p">:</span>
+                <span class="n">train_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;train.csv&#39;</span><span class="p">)</span>
+                <span class="n">data_source</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">data_source</span><span class="o">.</span><span class="n">test</span><span class="p">:</span>
+                <span class="n">test_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;test.csv&#39;</span><span class="p">)</span>
+                <span class="n">data_source</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">word_pretrained_embedding</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRETRAINED_WORD_EMBEDDINGs</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">word_pretrained_embedding</span><span class="si">}</span><span class="s2"> not supported !&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                
+                <span class="bp">self</span><span class="o">.</span><span class="n">word_pretrained_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRETRAINED_WORD_EMBEDDINGs</span><span class="p">[</span><span class="n">word_pretrained_embedding</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Use word pretrained embedding: </span><span class="si">{</span><span class="n">word_pretrained_embedding</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">word_pretrained_embedding</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="n">input_size</span> <span class="o">=</span> <span class="n">word_embedding_dim</span> <span class="o">+</span> <span class="n">num_filters</span>
+            <span class="n">lowercase</span> <span class="o">=</span> <span class="n">data_source</span><span class="o">.</span><span class="n">lowercase</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s2">&quot;dataset_reader&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;onenet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;token_indexers&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;tokens&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;single_id&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;lowercase_tokens&quot;</span><span class="p">:</span> <span class="n">lowercase</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;token_characters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;characters&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;min_padding_length&quot;</span><span class="p">:</span> <span class="mi">3</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="n">data_source</span><span class="o">.</span><span class="n">train</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s2">&quot;train_data_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_path</span>
+            <span class="k">if</span> <span class="n">data_source</span><span class="o">.</span><span class="n">test</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s2">&quot;test_data_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_path</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;onenet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label_encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;BIO&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dropout&quot;</span><span class="p">:</span> <span class="n">dropout</span><span class="p">,</span>
+                <span class="s2">&quot;include_start_end_transitions&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;text_field_embedder&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;token_embedders&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;tokens&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;embedding&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;embedding_dim&quot;</span><span class="p">:</span> <span class="n">word_embedding_dim</span><span class="p">,</span>
+                            <span class="s2">&quot;pretrained_file&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">word_pretrained_embedding</span><span class="p">,</span>
+                            <span class="s2">&quot;trainable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;token_characters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character_encoding&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;embedding&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;embedding_dim&quot;</span><span class="p">:</span> <span class="n">char_embedding_dim</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;encoder&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">char_encoder_type</span><span class="p">,</span>
+                                <span class="s2">&quot;embedding_dim&quot;</span><span class="p">:</span> <span class="n">char_embedding_dim</span><span class="p">,</span>
+                                <span class="s2">&quot;num_filters&quot;</span><span class="p">:</span> <span class="n">num_filters</span><span class="p">,</span>
+                                <span class="s2">&quot;ngram_filter_sizes&quot;</span><span class="p">:</span> <span class="n">ngram_filter_sizes</span><span class="p">,</span>
+                                <span class="s2">&quot;conv_layer_activation&quot;</span><span class="p">:</span> <span class="n">conv_layer_activation</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;encoder&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;lstm&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;input_size&quot;</span><span class="p">:</span> <span class="n">input_size</span><span class="p">,</span>
+                    <span class="s2">&quot;hidden_size&quot;</span><span class="p">:</span> <span class="n">hidden_size</span><span class="p">,</span>
+                    <span class="s2">&quot;num_layers&quot;</span><span class="p">:</span> <span class="n">num_layers</span><span class="p">,</span>
+                    <span class="s2">&quot;dropout&quot;</span><span class="p">:</span> <span class="n">dropout</span><span class="p">,</span>
+                    <span class="s2">&quot;bidirectional&quot;</span><span class="p">:</span> <span class="n">bidirectional</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;regularizer&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s2">&quot;scalar_parameters&quot;</span><span class="p">,</span>
+                        <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;l2&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.1</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">__name__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;OneNet&#39;</span>
+
+<div class="viewcode-block" id="OnenetLearner.train"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">base_path</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;./models/&#39;</span><span class="p">,</span> 
+        <span class="n">is_save_best_model</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">model_file</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">optimizer</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> 
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> 
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> 
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+        <span class="n">grad_norm</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> 
+        <span class="n">patience</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> 
+        <span class="n">skip_save_model</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="n">skip_save_log</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Train and save the model</span>
+
+<span class="sd">        :param base_path: Main path to models are saved</span>
+<span class="sd">        :param is_save_best_model: If True save the best model, else save the final model</span>
+<span class="sd">        :param model_file: The file name to save the model</span>
+<span class="sd">        :param learning_rate: Initial learning rate</span>
+<span class="sd">        :param batch_size: Size of batches during training</span>
+<span class="sd">        :param num_epochs: The number of epochs to train.</span>
+<span class="sd">        :param grad_norm: If provided, gradient norms will be rescaled to have a maximum of this value.</span>
+<span class="sd">        :param patience: Number of epochs to be patient before early stopping: the training is stopped </span>
+<span class="sd">                        after patience epochs with no improvement. If given, it must be &gt; 0. If None, </span>
+<span class="sd">                        early stopping is disabled.</span>
+<span class="sd">        :param skip_save_model: If True, disables saving the model</span>
+<span class="sd">        :param skip_save_log: If True, disable saving the training log</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s2">&quot;iterator&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;basic&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="n">batch_size</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s2">&quot;trainer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;optimizer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">optimizer</span><span class="p">,</span>
+                <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="n">learning_rate</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;validation_metric&quot;</span><span class="p">:</span> <span class="s2">&quot;+main_score&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;num_serialized_models_to_keep&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;num_epochs&quot;</span><span class="p">:</span> <span class="n">num_epochs</span><span class="p">,</span>
+            <span class="s2">&quot;grad_norm&quot;</span><span class="p">:</span> <span class="n">grad_norm</span><span class="p">,</span> 
+            <span class="s2">&quot;patience&quot;</span><span class="p">:</span> <span class="n">patience</span><span class="p">,</span> 
+            <span class="s2">&quot;cuda_device&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda_device</span>
+        <span class="p">}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">Params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">)</span>
+        <span class="n">_config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+    
+        <span class="c1"># clean folder base_path</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">base_path</span><span class="p">):</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">base_path</span><span class="p">))</span>
+
+        <span class="n">prepare_environment</span><span class="p">(</span><span class="n">_config</span><span class="p">)</span>
+        <span class="n">create_serialization_dir</span><span class="p">(</span><span class="n">_config</span><span class="p">,</span> <span class="n">serialization_dir</span><span class="o">=</span><span class="n">base_path</span><span class="p">,</span> <span class="n">recover</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">check_for_gpu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cuda_device</span><span class="p">)</span>
+
+        <span class="n">copy_config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">copy_config</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">CONFIG_NAME</span><span class="p">))</span>
+
+        <span class="n">dataset_reader_params</span> <span class="o">=</span> <span class="n">copy_config</span><span class="p">[</span><span class="s2">&quot;dataset_reader&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_reader</span> <span class="o">=</span> <span class="n">DatasetReader</span><span class="o">.</span><span class="n">from_params</span><span class="p">(</span><span class="n">dataset_reader_params</span><span class="p">)</span>
+    
+        <span class="bp">self</span><span class="o">.</span><span class="n">pieces</span> <span class="o">=</span> <span class="n">TrainerPieces</span><span class="o">.</span><span class="n">from_params</span><span class="p">(</span><span class="n">_config</span><span class="p">,</span> <span class="n">serialization_dir</span><span class="o">=</span><span class="n">base_path</span><span class="p">,</span> <span class="n">recover</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># pylint: disable=no-member</span>
+        <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="o">.</span><span class="n">from_params</span><span class="p">(</span>
+                <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                <span class="n">serialization_dir</span><span class="o">=</span><span class="n">base_path</span><span class="p">,</span>
+                <span class="n">iterator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">iterator</span><span class="p">,</span>
+                <span class="n">train_data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">train_dataset</span><span class="p">,</span>
+                <span class="n">validation_data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">validation_dataset</span><span class="p">,</span>
+                <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">params</span><span class="p">,</span>
+                <span class="n">validation_iterator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">validation_iterator</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+            <span class="c1"># if we have completed an epoch, try to create a model archive.</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">_DEFAULT_WEIGHTS</span><span class="p">)):</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Training interrupted by the user. Attempting to create &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;a model archive using the current best epoch weights.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">archive_model</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">files_to_archive</span><span class="o">=</span><span class="n">_config</span><span class="o">.</span><span class="n">files_to_archive</span><span class="p">)</span>
+            <span class="k">raise</span>
+        
+        <span class="c1"># # Now tar up results</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_save_model</span><span class="p">:</span>
+            <span class="n">archive_model</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">model_file</span><span class="o">=</span><span class="n">model_file</span><span class="p">,</span> <span class="n">files_to_archive</span><span class="o">=</span><span class="n">_config</span><span class="o">.</span><span class="n">files_to_archive</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path to the saved model: </span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">model_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">model</span>
+
+
+        <span class="c1">## remove trash file</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;model_state_epoch_([0-9\.\-]+)\.th&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;training_state_epoch_([0-9\.\-]+)\.th&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">))</span>
+        
+            <span class="k">if</span> <span class="n">skip_save_log</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;metrics_epoch_([0-9\.\-]+)\.json&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">))</span></div>
+        
+
+    <span class="k">def</span> <span class="nf">_load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Load pretrained model</span>
+
+<span class="sd">        :param model_path: Path to the pretrained model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">archive</span> <span class="o">=</span> <span class="n">load_archive</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">cuda_device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cuda_device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">archive</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">dataset_reader_params</span> <span class="o">=</span> <span class="n">archive</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dataset_reader&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_reader</span> <span class="o">=</span> <span class="n">DatasetReader</span><span class="o">.</span><span class="n">from_params</span><span class="p">(</span><span class="n">dataset_reader_params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">archive</span><span class="o">.</span><span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+<div class="viewcode-block" id="OnenetLearner.predict"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">sample</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Predicts the output for the given sequence sample</span>
+
+<span class="sd">        :param sample: The sample</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;), </span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: Return the output</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                           <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">Token</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_reader</span><span class="o">.</span><span class="n">text_to_instance</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">forward_on_instance</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">outputs</span></div>
+
+<div class="viewcode-block" id="OnenetLearner.convert_to_rasa_format"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.convert_to_rasa_format">[docs]</a>    <span class="k">def</span> <span class="nf">convert_to_rasa_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert outputs in rasa&#39;s format</span>
+<span class="sd">        </span>
+<span class="sd">        :param outputs: Dict output from the output of predict function.</span>
+
+<span class="sd">        :returns: A result rasa format. Example: \n</span>
+<span class="sd">                    [{  \n</span>
+<span class="sd">                        &#39;confidence&#39;: confidence, \n </span>
+<span class="sd">                        &#39;end&#39;: end, \n</span>
+<span class="sd">                        &#39;start&#39;: start, \n</span>
+<span class="sd">                        &#39;entity&#39;: entity, \n</span>
+<span class="sd">                        &#39;extractor&#39;: extractor, \n</span>
+<span class="sd">                        &#39;value&#39;: value  \n</span>
+<span class="sd">                    }] \n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">rasa_output</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">outputs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span>
+
+        <span class="n">rasa_output</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="n">rasa_output</span><span class="p">[</span><span class="s2">&quot;intent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;intent&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;intent_probs&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+            <span class="s2">&quot;intent_logits&quot;</span><span class="p">:</span> <span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;intent_logits&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">tags</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;words&#39;</span><span class="p">)</span>
+        <span class="n">tag_probs</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tag_logits&#39;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">tag_maxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">tag_probs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># get index start words</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rasa_output</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">entities</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">entity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">ping</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tags</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">ping</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">entities</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="n">entity</span><span class="p">,</span> 
+                        <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> 
+                        <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>                     
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">tag_maxs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                        <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="p">})</span>
+                    <span class="n">ping</span> <span class="o">=</span> <span class="kc">False</span>
+
+                <span class="k">elif</span> <span class="p">(</span><span class="s2">&quot;B-&quot;</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">entities</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="n">entity</span><span class="p">,</span> 
+                        <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> 
+                        <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>                     
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">tag_maxs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                        <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="p">})</span>
+
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">entity</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+
+                    <span class="n">entities</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="n">entity</span><span class="p">,</span> 
+                        <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> 
+                        <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">tag_maxs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                        <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="p">})</span>
+
+                <span class="k">elif</span> <span class="s2">&quot;B-&quot;</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">entities</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="n">entity</span><span class="p">,</span> 
+                        <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> 
+                        <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>                     
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">tag_maxs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                        <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="p">})</span>
+                    <span class="n">ping</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">entity</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">entities</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="n">entity</span><span class="p">,</span> 
+                        <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> 
+                        <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">tag_maxs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                        <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="p">})</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;B-&quot;</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">entity</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+                    <span class="n">entities</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="n">entity</span><span class="p">,</span> 
+                        <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> 
+                        <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">tag_maxs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                        <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="p">})</span>
+
+                <span class="k">elif</span> <span class="s2">&quot;B-&quot;</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">entity</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+                    <span class="n">ping</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">rasa_output</span><span class="p">[</span><span class="s2">&quot;entities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entities</span>
+
+        <span class="k">return</span> <span class="n">rasa_output</span></div>
+
+<div class="viewcode-block" id="OnenetLearner.process"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">sample</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the results as output of rasa format</span>
+
+<span class="sd">        :param sample: The sample need to inference</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;),</span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: The results format rasa. Example: \n</span>
+<span class="sd">                    { \n</span>
+<span class="sd">                        &quot;intent&quot;: { \n</span>
+<span class="sd">                            &quot;name&quot;: query_kb, \n</span>
+<span class="sd">                            &quot;confidence&quot;: 0.9999999\n</span>
+<span class="sd">                            }, \n</span>
+<span class="sd">                        &quot;entities&quot;: [\n</span>
+<span class="sd">                           {\n</span>
+<span class="sd">                                &#39;confidence&#39;: 0.9994359612464905,\n</span>
+<span class="sd">                                &#39;end&#39;: 3,\n</span>
+<span class="sd">                                &#39;entity&#39;: &#39;object_type&#39;,\n</span>
+<span class="sd">                                &#39;extractor&#39;: &#39;OnetNet&#39;,\n</span>
+<span class="sd">                                &#39;start&#39;: 0,\n</span>
+<span class="sd">                                &#39;value&#39;: &#39;cũi&#39;\n</span>
+<span class="sd">                            }, \n</span>
+<span class="sd">                        ],\n</span>
+<span class="sd">                        &quot;text&quot;: cũi này còn k sh\n</span>
+<span class="sd">                     }\n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sample</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">,</span> <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> 
+                            <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Raw output: </span><span class="si">{</span><span class="n">pformat</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">rasa_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_rasa_format</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">rasa_output</span></div>
+        
+        
+    <span class="k">def</span> <span class="nf">_evaluate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span> 
+        <span class="n">instances</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Instance</span><span class="p">],</span> 
+        <span class="n">data_iterator</span><span class="p">:</span> <span class="n">DataIterator</span><span class="p">,</span> 
+        <span class="n">cuda_device</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> 
+        <span class="n">batch_weight_key</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+    <span class="p">):</span>
+        <span class="n">check_for_gpu</span><span class="p">(</span><span class="n">cuda_device</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+            <span class="n">iterator</span> <span class="o">=</span> <span class="n">data_iterator</span><span class="p">(</span><span class="n">instances</span><span class="p">,</span>
+                                    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Iterating over dataset&quot;</span><span class="p">)</span>
+            <span class="n">generator_tqdm</span> <span class="o">=</span> <span class="n">Tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">iterator</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="n">data_iterator</span><span class="o">.</span><span class="n">get_num_batches</span><span class="p">(</span><span class="n">instances</span><span class="p">))</span>
+
+            <span class="c1"># Number of batches in instances.</span>
+            <span class="n">batch_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># Number of batches where the model produces a loss.</span>
+            <span class="n">loss_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># Cumulative weighted loss</span>
+            <span class="n">total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="c1"># Cumulative weight across all batches.</span>
+            <span class="n">total_weight</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">generator_tqdm</span><span class="p">:</span>
+                <span class="n">batch_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">batch</span> <span class="o">=</span> <span class="n">nn_util</span><span class="o">.</span><span class="n">move_to_device</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">cuda_device</span><span class="p">)</span>
+                <span class="n">output_dict</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">batch</span><span class="p">)</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="n">output_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;loss&quot;</span><span class="p">)</span>
+
+                <span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">loss</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">loss_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">batch_weight_key</span><span class="p">:</span>
+                        <span class="n">weight</span> <span class="o">=</span> <span class="n">output_dict</span><span class="p">[</span><span class="n">batch_weight_key</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">weight</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+                    <span class="n">total_weight</span> <span class="o">+=</span> <span class="n">weight</span>
+                    <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">*</span> <span class="n">weight</span>
+                    <span class="c1"># Report the average loss so far.</span>
+                    <span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_loss</span> <span class="o">/</span> <span class="n">total_weight</span>
+
+            <span class="n">final_metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">(</span><span class="n">reset</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">loss_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Sanity check</span>
+                <span class="k">if</span> <span class="n">loss_count</span> <span class="o">!=</span> <span class="n">batch_count</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;The model you are trying to evaluate only sometimes &quot;</span> <span class="o">+</span>
+                                    <span class="s2">&quot;produced a loss!&quot;</span><span class="p">)</span>
+                <span class="n">final_metrics</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_loss</span> <span class="o">/</span> <span class="n">total_weight</span>
+
+        <span class="k">return</span> <span class="n">final_metrics</span>
+
+<div class="viewcode-block" id="OnenetLearner.get_classes"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.get_classes">[docs]</a>    <span class="k">def</span> <span class="nf">get_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get all classes of intent and tags</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: A dict {&#39;intent&#39;: classes of intent, &#39;tag&#39;: classes of tag}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cls_classes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">_index_to_token</span><span class="p">[</span><span class="s1">&#39;intent_labels&#39;</span><span class="p">]</span>
+        <span class="n">tag_classes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">_index_to_token</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;intent&#39;</span><span class="p">:</span> <span class="n">cls_classes</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="n">tag_classes</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="OnenetLearner.evaluate"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">DenverDataSource</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">text_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> 
+        <span class="n">intent_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;intent&#39;</span><span class="p">,</span> 
+        <span class="n">tag_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">,</span>
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evaluate the model with test dataset</span>
+
+<span class="sd">        :param data: The path to data .csv or a DataFrame or a DenverDataSource</span>
+<span class="sd">        :param text_col: The column name of text data</span>
+<span class="sd">        :param intent_col: The column name of intent label data</span>
+<span class="sd">        :param tag_col: The column name of tags label data</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;), </span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: Metrics format: \n </span>
+<span class="sd">                    {\n</span>
+<span class="sd">                        &#39;precision&#39;: 1.0, \n</span>
+<span class="sd">                        &#39;recall&#39;: 1.0, \n</span>
+<span class="sd">                        &#39;f1-score&#39;: 1.0 \n</span>
+<span class="sd">                    } \n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tempdir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">test_path</span><span class="o">=</span><span class="n">data_path</span><span class="p">,</span>
+                                                    <span class="n">text_col</span><span class="o">=</span><span class="n">text_col</span><span class="p">,</span>
+                                                    <span class="n">intent_col</span><span class="o">=</span><span class="n">intent_col</span><span class="p">,</span>
+                                                    <span class="n">tag_col</span><span class="o">=</span><span class="n">tag_col</span><span class="p">,</span>
+                                                    <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span>
+                                                    <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span>
+                                                    <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span>
+                                                    <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+            <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">tempdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+            <span class="n">data_source</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">tempdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+            <span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">test_df</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                                             <span class="n">text_col</span><span class="o">=</span><span class="n">text_col</span><span class="p">,</span>
+                                             <span class="n">intent_col</span><span class="o">=</span><span class="n">intent_col</span><span class="p">,</span>
+                                             <span class="n">tag_col</span><span class="o">=</span><span class="n">tag_col</span><span class="p">,</span>
+                                             <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span>
+                                             <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span>
+                                             <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span>
+                                             <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+            <span class="n">data_source</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">DenverDataSource</span><span class="p">):</span>
+            <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">tempdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">test</span><span class="p">:</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attribute `test` in `data` (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">) is `None` value!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`data` must be difference to `None` value.&quot;</span><span class="p">)</span>
+        
+        <span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+
+        <span class="n">prepare_environment</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">dataset_reader</span> <span class="o">=</span> <span class="n">DatasetReader</span><span class="o">.</span><span class="n">from_params</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;dataset_reader&#39;</span><span class="p">))</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Reading evaluation data from </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data_path</span><span class="p">)</span>
+        <span class="n">instances</span> <span class="o">=</span> <span class="n">dataset_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+
+        <span class="n">iterator_params</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;validation_iterator&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">iterator_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">iterator_params</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;iterator&quot;</span><span class="p">)</span>
+        <span class="n">iterator</span> <span class="o">=</span> <span class="n">DataIterator</span><span class="o">.</span><span class="n">from_params</span><span class="p">(</span><span class="n">iterator_params</span><span class="p">)</span>
+        <span class="n">iterator</span><span class="o">.</span><span class="n">index_with</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Evaluating...&quot;</span><span class="p">)</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> 
+                                 <span class="n">instances</span><span class="o">=</span><span class="n">instances</span><span class="p">,</span> 
+                                 <span class="n">data_iterator</span><span class="o">=</span><span class="n">iterator</span><span class="p">,</span> 
+                                 <span class="n">cuda_device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cuda_device</span><span class="p">,</span> 
+                                 <span class="n">batch_weight_key</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)],</span>
+            <span class="s1">&#39;main_score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;main_score&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)],</span>
+            <span class="s1">&#39;intent&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;intent&#39;</span><span class="p">]],</span>
+            <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]],</span>
+            <span class="s1">&#39;cls_detailed&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;cls_detailed&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;tags_detailed&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;tags_detailed&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+<div class="viewcode-block" id="OnenetLearner.validate"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">evaluation_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">validation_iterator</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">iterator</span>
+        <span class="n">evaluation_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieces</span><span class="o">.</span><span class="n">validation_dataset</span>
+        <span class="c1"># Evaluate</span>
+        <span class="c1"># logging.getLogger(&#39;allennlp.training.util&#39;).disabled = True</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="kc">None</span> 
+        <span class="k">if</span> <span class="n">evaluation_dataset</span><span class="p">:</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">evaluation_dataset</span><span class="p">,</span> <span class="n">evaluation_iterator</span><span class="p">,</span>
+                                    <span class="n">cuda_device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cuda_device</span><span class="p">,</span> <span class="n">batch_weight_key</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">metrics</span><span class="p">:</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)],</span>
+                <span class="s1">&#39;main_score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;main_score&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)],</span>
+                <span class="s1">&#39;intent&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;intent&#39;</span><span class="p">]],</span>
+                <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]],</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">metrics</span>
+            
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="OnenetLearner.predict_on_df"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.onenet_learner.OnenetLearner.predict_on_df">[docs]</a>    <span class="k">def</span> <span class="nf">predict_on_df</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">],</span> 
+        <span class="n">text_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+        <span class="n">intent_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">tag_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span> 
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Predicts the class labels for a DataFrame</span>
+<span class="sd">        </span>
+<span class="sd">        :param data: The path to data or a DataFrame</span>
+<span class="sd">        :param text_col: The column name of text data</span>
+<span class="sd">        :param intent_col: The column name of intent label data</span>
+<span class="sd">        :param tags_col: The column name of tags label data</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;),</span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: A DataFrame include of columns &#39;text&#39;, &#39;pred&#39;, &#39;label&#39;(maybe)). </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>
+            <span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">test_path</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                                                    <span class="n">text_col</span><span class="o">=</span><span class="n">text_col</span><span class="p">,</span> 
+                                                    <span class="n">intent_col</span><span class="o">=</span><span class="n">intent_col</span><span class="p">,</span>
+                                                    <span class="n">tag_col</span><span class="o">=</span><span class="n">tag_col</span><span class="p">,</span> 
+                                                    <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> 
+                                                    <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                                                    <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> 
+                                                    <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+            <span class="n">data_df</span> <span class="o">=</span> <span class="n">data_source</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data_df</span> <span class="o">=</span> <span class="n">data</span>
+        
+        <span class="k">if</span> <span class="s1">&#39;text&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column name in DataFrame must be include `text` column.&quot;</span><span class="p">)</span>
+        
+        <span class="n">tags_preds</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">intent_preds</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">intent_scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Get-prediction...&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">))):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span>
+                            <span class="n">sample</span><span class="o">=</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> 
+                            <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> 
+                            <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                            <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> 
+                            <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span>
+                        <span class="p">)</span>
+
+            <span class="n">bio</span> <span class="o">=</span> <span class="n">convert_to_BIO</span><span class="p">(</span><span class="n">entities</span><span class="o">=</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;entities&#39;</span><span class="p">],</span> <span class="n">text</span><span class="o">=</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">tags_preds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bio</span><span class="p">)</span>
+            <span class="n">intent_preds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;intent&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+            <span class="n">intent_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;intent&#39;</span><span class="p">][</span><span class="s1">&#39;confidence&#39;</span><span class="p">])</span>
+        
+        <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;intent_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">intent_preds</span>
+        <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;intent_confidence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">intent_scores</span>
+        <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;tag_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tags_preds</span>
+
+        <span class="k">return</span> <span class="n">data_df</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

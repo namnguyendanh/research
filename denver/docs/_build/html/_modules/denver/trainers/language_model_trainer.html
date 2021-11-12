@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.trainers.language_model_trainer &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../denver/denver.html">Denver Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>denver.trainers.language_model_trainer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for denver.trainers.language_model_trainer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8</span>
+<span class="c1"># Copyright (c) 2021 by Phuc Phan</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Text</span>
+<span class="kn">from</span> <span class="nn">fastai.basics</span> <span class="kn">import</span> <span class="n">download_url</span><span class="p">,</span> <span class="n">bunzip</span><span class="p">,</span> <span class="n">shutil</span><span class="p">,</span> <span class="n">working_directory</span>
+<span class="kn">from</span> <span class="nn">fastai.text</span> <span class="kn">import</span> <span class="n">TextList</span><span class="p">,</span> <span class="n">language_model_learner</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">TextLMDataBunch</span>
+
+<span class="kn">from</span> <span class="nn">denver</span> <span class="kn">import</span> <span class="n">DENVER_DIR</span>
+<span class="kn">from</span> <span class="nn">denver.utils.print_utils</span> <span class="kn">import</span> <span class="n">print_line</span>
+<span class="kn">from</span> <span class="nn">denver.utils.utils</span> <span class="kn">import</span> <span class="n">download_url</span> <span class="k">as</span> <span class="n">dl</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># pylint: disable=invalid-name</span>
+
+<div class="viewcode-block" id="LanguageModelTrainer"><a class="viewcode-back" href="../../../denver/denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer">[docs]</a><span class="k">class</span> <span class="nc">LanguageModelTrainer</span><span class="p">:</span>    
+    <span class="sd">&quot;&quot;&quot;A class Language model trainer. &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pretrain</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]]</span><span class="o">=</span><span class="s1">&#39;babe&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize a class Language model trainer</span>
+
+<span class="sd">        :param pretrain: The name of the pretrained language model (&#39;wiki&#39;, &#39;babe&#39;) or None value</span>
+<span class="sd">                           or the path to your pretrained language model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+        <span class="k">if</span> <span class="n">pretrain</span> <span class="o">==</span> <span class="s1">&#39;babe&#39;</span><span class="p">:</span>
+            <span class="n">urls</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;vi_wt_babe.pth&#39;</span><span class="p">:</span> <span class="s1">&#39;http://minio.dev.ftech.ai/fastaibase-v0.0.3-677cd84c/vi_wt_babe.pth&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;vi_wt_vocab_babe.pkl&#39;</span><span class="p">:</span> <span class="s1">&#39;http://minio.dev.ftech.ai/fastaibase-v0.0.3-677cd84c/vi_wt_vocab_babe.pkl&#39;</span>
+            <span class="p">}</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">downdload_lm</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Load the pretrained language-model from: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">pretrain</span> <span class="o">==</span> <span class="s1">&#39;wiki&#39;</span><span class="p">:</span>
+            <span class="n">urls</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;vi_wt_wiki.pth&#39;</span><span class="p">:</span> <span class="s1">&#39;http://minio.dev.ftech.ai/fastaibase-v0.0.4-f17ecdb1/vi_wt_wiki.pth&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;vi_wt_vocab_wiki.pkl&#39;</span><span class="p">:</span> <span class="s1">&#39;http://minio.dev.ftech.ai/fastaibase-v0.0.4-f17ecdb1/vi_wt_vocab_wiki.pkl&#39;</span>
+            <span class="p">}</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">downdload_lm</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Load the pretrained language model from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">pretrain</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="o">==</span> <span class="kc">None</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The pretrained language model is a `None` value.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pretrain</span><span class="p">,</span> <span class="n">List</span><span class="p">):</span>
+            <span class="n">lm_fns_pretrained</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pretrain</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">lm_fns_pretrained</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.pth&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">lm_fns_pretrained</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;pkl&#39;</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The `</span><span class="si">{</span><span class="n">lm_fns_pretrained</span><span class="si">}</span><span class="s2">` is not found or not supplied!&quot;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setup `lm_pretrained_path` into `None` value !&quot;</span><span class="p">)</span>
+                
+                <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="o">=</span> <span class="n">lm_fns_pretrained</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`lm_fns_pretrained` must be in [&#39;babe&#39;, &#39;wiki&#39;, None] or List of paths to pretrained language model. &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;Setup lm_fns_pretrained=None&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LanguageModelTrainer.downdload_lm"><a class="viewcode-back" href="../../../denver/denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer.downdload_lm">[docs]</a>    <span class="k">def</span> <span class="nf">downdload_lm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">urls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Download the pretrained language models. &quot;&quot;&quot;</span>
+        <span class="n">lm_fns_pretrained</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DENVER_DIR</span><span class="si">}</span><span class="s1">&#39;</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">dl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="n">lm_fns_pretrained</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">dest</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">lm_fns_pretrained</span></div>
+
+<div class="viewcode-block" id="LanguageModelTrainer.get_wiki"><a class="viewcode-back" href="../../../denver/denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer.get_wiki">[docs]</a>    <span class="k">def</span> <span class="nf">get_wiki</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Wikipedia data download function</span>
+
+<span class="sd">        :param path: Path to save the dataset.</span>
+<span class="sd">        :param lang: Language wikipedia. Example: vi, en,..</span>
+<span class="sd">        :param name: The directory name that stores the dataset.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">path</span><span class="o">/</span><span class="n">name</span><span class="si">}</span><span class="s2"> already exists; not downloading&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">xml_fn</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s2">wiki-latest-pages-articles.xml&quot;</span>
+        <span class="n">zip_fn</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">xml_fn</span><span class="si">}</span><span class="s2">.bz2&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="n">xml_fn</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading...&quot;</span><span class="p">)</span>
+            <span class="n">download_url</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://dumps.wikimedia.org/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/latest/</span><span class="si">{</span><span class="n">zip_fn</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">/</span><span class="n">zip_fn</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unzipping...&quot;</span><span class="p">)</span>
+            <span class="n">bunzip</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="n">zip_fn</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">working_directory</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;wikiextractor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;git clone https://github.com/attardi/wikiextractor.git&#39;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracting...&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;python wikiextractor/WikiExtractor.py --processes 4 --no_templates &quot;</span> <span class="o">+</span>
+                <span class="sa">f</span><span class="s2">&quot;--min_text_length 1800 --filter_disambig_pages --log_file log -b 100G -q </span><span class="si">{</span><span class="n">xml_fn</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;text/AA/wiki_00&#39;</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;text&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LanguageModelTrainer.split_wiki"><a class="viewcode-back" href="../../../denver/denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer.split_wiki">[docs]</a>    <span class="k">def</span> <span class="nf">split_wiki</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Split data into sub-files</span>
+
+<span class="sd">        :param path: Path to save the dataset.</span>
+<span class="sd">        :param lang: Language wikipedia. Example: vi, en,..</span>
+<span class="sd">        :param name: The directory name that stores the dataset.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="n">path</span><span class="o">/</span><span class="s1">&#39;docs&#39;</span>
+        <span class="k">if</span> <span class="n">dest</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dest</span><span class="si">}</span><span class="s2"> already exists; not splitting&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">dest</span>
+
+        <span class="n">dest</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">title_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">rf</span><span class="s1">&#39;&lt;doc id=&quot;\d+&quot; url=&quot;https://</span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s1">.wikipedia.org/wiki\?curid=\d+&quot; title=&quot;([^&quot;]+)&quot;&gt;&#39;</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+        <span class="n">f</span><span class="o">=</span><span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">100000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;&lt;doc id=&quot;&#39;</span><span class="p">):</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="n">title_re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">l</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">150</span><span class="p">:</span> <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">dest</span><span class="o">/</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s1">.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">dest</span></div>
+
+<div class="viewcode-block" id="LanguageModelTrainer.fine_tuning_from_wiki"><a class="viewcode-back" href="../../../denver/denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer.fine_tuning_from_wiki">[docs]</a>    <span class="k">def</span> <span class="nf">fine_tuning_from_wiki</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">lm_fns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;vi&#39;</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> 
+        <span class="n">num_workers</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+        <span class="n">moms</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">),</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+        <span class="n">drop_mult</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">pct</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fine-tunning Language model with Wiki dataset based on AWD_LSTM architecture.</span>
+
+<span class="sd">        :param lm_fns: The path to save language model</span>
+<span class="sd">        :param lang: The name of the language, default=&#39;vi</span>
+<span class="sd">        :param seed: The number of seed</span>
+<span class="sd">        :param num_wokers: The number of workers</span>
+<span class="sd">        :param num_epochs: The number of epochs</span>
+<span class="sd">        :param learning_rate: The learning rate</span>
+<span class="sd">        :param moms: The momentums</span>
+<span class="sd">        :param batch_size: The batch size</span>
+<span class="sd">        :param drop_mult: The dropout multiple</span>
+<span class="sd">        :param pct: The ratio to split train and valid during when training </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s1">wiki&#39;</span>
+        <span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;fastai&#39;</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">data_path</span><span class="o">/</span><span class="n">name</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_wiki</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_wiki</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="n">data_lm</span> <span class="o">=</span> <span class="n">TextList</span><span class="o">.</span><span class="n">from_folder</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span><span class="o">.</span><span class="n">split_by_rand_pct</span><span class="p">(</span><span class="n">pct</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">label_for_lm</span><span class="p">()</span> \
+                          <span class="o">.</span><span class="n">databunch</span><span class="p">(</span><span class="n">bs</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
+        <span class="n">data_lm</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s1">_databunch&#39;</span><span class="p">)</span>
+
+        <span class="n">learn</span> <span class="o">=</span> <span class="n">language_model_learner</span><span class="p">(</span><span class="n">data_lm</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">drop_mult</span><span class="o">=</span><span class="n">drop_mult</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span><span class="p">)</span>
+        
+        <span class="n">_lr</span> <span class="o">=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="o">/</span> <span class="mi">48</span>     <span class="c1">#Scale learning rate by batchsize</span>
+
+        <span class="n">learn</span><span class="o">.</span><span class="n">unfreeze</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training language model with Wiki corpus...&quot;</span><span class="p">)</span>
+        
+        <span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">_lr</span><span class="p">,</span> <span class="n">moms</span><span class="o">=</span><span class="n">moms</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">lm_fns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lm_fns</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Save the fine-tuned language model into </span><span class="si">{</span><span class="n">lm_fns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;./models/.finetune/&#39;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;./models/.finetune/&#39;</span><span class="p">)</span>
+
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./models/.finetune/vi_wt&quot;</span><span class="p">,</span> <span class="s2">&quot;./models/.finetune/vi_wt_vocab&quot;</span><span class="p">]</span>
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lm_fns</span><span class="p">]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Save the fine-tuned language model into </span><span class="si">{</span><span class="n">lm_fns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">learn</span><span class="o">.</span><span class="n">to_fp32</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">lm_fns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">with_opt</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">learn</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">lm_fns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.pkl&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LanguageModelTrainer.fine_tuning_from_folder"><a class="viewcode-back" href="../../../denver/denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer.fine_tuning_from_folder">[docs]</a>    <span class="k">def</span> <span class="nf">fine_tuning_from_folder</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data_folder</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">lm_fns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+        <span class="n">num_workers</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+        <span class="n">exp_lr</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">5.75e-2</span><span class="p">,</span>
+        <span class="n">moms</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">),</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span>
+        <span class="n">drop_mult</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">pct</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Fine-tuning language model with folder dataset for fine-tuning LM</span>
+
+<span class="sd">        :param data_folder: the path to folder data</span>
+<span class="sd">        :param lm_fns: The path to save language model</span>
+<span class="sd">        :param seed: The number of seed</span>
+<span class="sd">        :param num_wokers: The number of workers</span>
+<span class="sd">        :param num_epochs: The number of epochs</span>
+<span class="sd">        :param learning_rate: The learning rate</span>
+<span class="sd">        :param exp_lr: The experiment learning rate for the best results</span>
+<span class="sd">        :param moms: The momentums</span>
+<span class="sd">        :param batch_size: The batch size</span>
+<span class="sd">        :param drop_mult: The dropout multiple</span>
+<span class="sd">        :param pct: The ratio to split train and valid during when training </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">data_lm</span> <span class="o">=</span> <span class="p">(</span><span class="n">TextList</span><span class="o">.</span><span class="n">from_folder</span><span class="p">(</span><span class="n">data_folder</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">split_by_rand_pct</span><span class="p">(</span><span class="n">pct</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">label_for_lm</span><span class="p">()</span>
+                <span class="o">.</span><span class="n">databunch</span><span class="p">(</span><span class="n">bs</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">))</span>
+        <span class="n">learn_lm</span> <span class="o">=</span> <span class="n">language_model_learner</span><span class="p">(</span><span class="n">data_lm</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">pretrained_fnames</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span><span class="p">,</span> <span class="n">drop_mult</span><span class="o">=</span><span class="n">drop_mult</span><span class="p">)</span>
+
+        <span class="c1"># 5.75e-02 is the experimental value for best results</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fine-tuning language model with data corpus: </span><span class="si">{</span><span class="n">data_folder</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.2</span><span class="o">*</span><span class="n">num_epochs</span><span class="p">),</span> <span class="n">exp_lr</span><span class="p">,</span> <span class="n">moms</span><span class="o">=</span><span class="n">moms</span><span class="p">)</span>    
+
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">unfreeze</span><span class="p">()</span>
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.8</span><span class="o">*</span><span class="n">num_epochs</span><span class="p">),</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">moms</span><span class="o">=</span><span class="n">moms</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">lm_fns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lm_fns</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Save the fine-tuned language model into </span><span class="si">{</span><span class="n">lm_fns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;./models/.finetune/&#39;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;./models/.finetune/&#39;</span><span class="p">)</span>
+
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./models/.finetune/vi_wt&quot;</span><span class="p">,</span> <span class="s2">&quot;./models/.finetune/vi_wt_vocab&quot;</span><span class="p">]</span>
+            <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lm_fns</span><span class="p">]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Save the fine-tuned language model into </span><span class="si">{</span><span class="n">lm_fns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">to_fp32</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">lm_fns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">with_opt</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lm_fns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.pkl&#39;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="LanguageModelTrainer.fine_tuning_from_df"><a class="viewcode-back" href="../../../denver/denver.trainers.html#denver.trainers.language_model_trainer.LanguageModelTrainer.fine_tuning_from_df">[docs]</a>    <span class="k">def</span> <span class="nf">fine_tuning_from_df</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data_df</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> 
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+        <span class="n">num_workers</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+        <span class="n">moms</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span><span class="o">=</span><span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+        <span class="n">drop_mult</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Fine-tuning language model with dataframe</span>
+
+<span class="sd">        :param data_df: A train Dataframe</span>
+<span class="sd">        :param seed: The number of seed</span>
+<span class="sd">        :param num_wokers: The number of workers</span>
+<span class="sd">        :param num_epochs: The number of epochs</span>
+<span class="sd">        :param learning_rate: The learning rate</span>
+<span class="sd">        :param moms: The momentums</span>
+<span class="sd">        :param batch_size: The batch size</span>
+<span class="sd">        :param drop_mult: The dropout multiple</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># df = df.iloc[np.random.permutation(len(df))]</span>
+        <span class="c1"># cut = int(pct * len(df)) + 1</span>
+        <span class="c1"># train_df, valid_df = df[cut:], df[:cut]</span>
+
+        <span class="n">data_lm</span> <span class="o">=</span> <span class="n">TextLMDataBunch</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">train_df</span><span class="o">=</span><span class="n">data_df</span><span class="p">,</span> <span class="n">valid_df</span><span class="o">=</span><span class="n">data_df</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                                          <span class="n">text_cols</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">label_cols</span><span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+
+        <span class="n">learn_lm</span> <span class="o">=</span> <span class="n">language_model_learner</span><span class="p">(</span><span class="n">data_lm</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">pretrained_fnames</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lm_fns_pretrained</span><span class="p">,</span> <span class="n">drop_mult</span><span class="o">=</span><span class="n">drop_mult</span><span class="p">)</span>
+
+        <span class="n">print_line</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;FINE-TUNING&#39;</span><span class="p">)</span>
+
+        <span class="n">_lr</span> <span class="o">=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="o">/</span> <span class="mi">48</span>
+
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.2</span><span class="o">*</span><span class="n">num_epochs</span><span class="p">),</span> <span class="n">_lr</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">moms</span><span class="o">=</span><span class="n">moms</span><span class="p">)</span>
+
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">unfreeze</span><span class="p">()</span>
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.8</span><span class="o">*</span><span class="n">num_epochs</span><span class="p">),</span> <span class="n">_lr</span><span class="p">,</span> <span class="n">moms</span><span class="o">=</span><span class="n">moms</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DENVER_DIR</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DENVER_DIR</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+        <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DENVER_DIR</span><span class="si">}</span><span class="s2">/vifine_tuned_ic&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DENVER_DIR</span><span class="si">}</span><span class="s2">/vifine_tuned_enc_ic&quot;</span><span class="p">]</span>
+        <span class="n">lm_fns</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lm_fns</span><span class="p">]</span>
+
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">lm_fns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">learn_lm</span><span class="o">.</span><span class="n">save_encoder</span><span class="p">(</span><span class="n">lm_fns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div></div>
+
+        <span class="c1"># # Save model</span>
+        <span class="c1"># logger.info(f&quot;\tPath to the saved encode language model: &#39;{lm_fns[1]}&#39;&quot;)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

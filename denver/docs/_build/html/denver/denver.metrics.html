@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.metrics &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="denver.uncertainty_estimate" href="denver.uncertainty_estimate.html" />
+    <link rel="prev" title="denver.utils" href="denver.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="denver.html">Denver Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="denver.data.html">denver.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.embeddings.html">denver.embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.models.html">denver.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.learners.html">denver.learners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.trainers.html">denver.trainers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.utils.html">denver.utils</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">denver.metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.uncertainty_estimate.html">denver.uncertainty_estimate</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="denver.html">Denver Package</a> &raquo;</li>
+        
+      <li>denver.metrics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/denver/denver.metrics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-denver.metrics">
+<span id="denver-metrics"></span><h1>denver.metrics<a class="headerlink" href="#module-denver.metrics" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="denver.metrics.Metrics">
+<em class="property">class </em><code class="sig-prename descclassname">denver.metrics.</code><code class="sig-name descname">Metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="denver.metrics.Metrics.accuracy">
+<code class="sig-name descname">accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.accuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.accuracy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.add_fn">
+<code class="sig-name descname">add_fn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.add_fn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.add_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.add_fp">
+<code class="sig-name descname">add_fp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.add_fp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.add_fp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.add_tn">
+<code class="sig-name descname">add_tn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.add_tn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.add_tn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.add_tp">
+<code class="sig-name descname">add_tp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.add_tp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.add_tp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.f_score">
+<code class="sig-name descname">f_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.f_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.f_score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.get_classes">
+<code class="sig-name descname">get_classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.get_classes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.get_classes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.get_fn">
+<code class="sig-name descname">get_fn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.get_fn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.get_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.get_fp">
+<code class="sig-name descname">get_fp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.get_fp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.get_fp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.get_tn">
+<code class="sig-name descname">get_tn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.get_tn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.get_tn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.get_tp">
+<code class="sig-name descname">get_tp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.get_tp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.get_tp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.macro_avg_accuracy">
+<code class="sig-name descname">macro_avg_accuracy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.macro_avg_accuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.macro_avg_accuracy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.macro_avg_f_score">
+<code class="sig-name descname">macro_avg_f_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.macro_avg_f_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.macro_avg_f_score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.macro_avg_precision">
+<code class="sig-name descname">macro_avg_precision</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.macro_avg_precision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.macro_avg_precision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.macro_avg_recall">
+<code class="sig-name descname">macro_avg_recall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.macro_avg_recall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.macro_avg_recall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.micro_avg_accuracy">
+<code class="sig-name descname">micro_avg_accuracy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.micro_avg_accuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.micro_avg_accuracy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.micro_avg_f_score">
+<code class="sig-name descname">micro_avg_f_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.micro_avg_f_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.micro_avg_f_score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.micro_avg_precision">
+<code class="sig-name descname">micro_avg_precision</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.micro_avg_precision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.micro_avg_precision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.micro_avg_recall">
+<code class="sig-name descname">micro_avg_recall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.micro_avg_recall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.micro_avg_recall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.precision">
+<code class="sig-name descname">precision</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.precision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.precision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.Metrics.recall">
+<code class="sig-name descname">recall</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#Metrics.recall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.Metrics.recall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="denver.metrics.OnetNetMetrics">
+<em class="property">class </em><code class="sig-prename descclassname">denver.metrics.</code><code class="sig-name descname">OnetNetMetrics</code><a class="reference internal" href="../_modules/denver/metrics.html#OnetNetMetrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.OnetNetMetrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">allennlp.training.metrics.metric.Metric</span></code></p>
+<p>A class Metics for OneNet model.</p>
+<dl class="py method">
+<dt id="denver.metrics.OnetNetMetrics.get_metric">
+<code class="sig-name descname">get_metric</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reset</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#OnetNetMetrics.get_metric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.OnetNetMetrics.get_metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function get metric, return a Dict per label containing following the span based metrics:</p>
+<p>precision : float</p>
+<p>recall : float</p>
+<p>f1-measure : float</p>
+<p>Additionally, an <code class="docutils literal notranslate"><span class="pre">overall</span></code> key is included, which provides the precision,</p>
+<p>recall and f1-measure for all spans.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.metrics.OnetNetMetrics.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#OnetNetMetrics.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.OnetNetMetrics.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset any accumulators or internal state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="denver.metrics.get_metric">
+<code class="sig-prename descclassname">denver.metrics.</code><code class="sig-name descname">get_metric</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/metrics.html#get_metric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.metrics.get_metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to get metrics evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_pred</strong> – Ground truth (correct) target values.</p></li>
+<li><p><strong>y_true</strong> – Estimated targets as returned by a classifier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>acc, f1, precision, recall</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="denver.uncertainty_estimate.html" class="btn btn-neutral float-right" title="denver.uncertainty_estimate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="denver.utils.html" class="btn btn-neutral float-left" title="denver.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

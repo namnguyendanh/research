@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.embeddings &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="denver.models" href="denver.models.html" />
+    <link rel="prev" title="denver.data" href="denver.data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="denver.html">Denver Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="denver.data.html">denver.data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">denver.embeddings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.embeddings.embeddings">denver.embeddings.embeddings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="denver.models.html">denver.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.learners.html">denver.learners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.trainers.html">denver.trainers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.utils.html">denver.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.metrics.html">denver.metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.uncertainty_estimate.html">denver.uncertainty_estimate</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="denver.html">Denver Package</a> &raquo;</li>
+        
+      <li>denver.embeddings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/denver/denver.embeddings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="denver-embeddings">
+<h1>denver.embeddings<a class="headerlink" href="#denver-embeddings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-denver.embeddings.embeddings">
+<span id="denver-embeddings-embeddings"></span><h2>denver.embeddings.embeddings<a class="headerlink" href="#module-denver.embeddings.embeddings" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.embeddings.embeddings.Embeddings">
+<em class="property">class </em><code class="sig-prename descclassname">denver.embeddings.embeddings.</code><code class="sig-name descname">Embeddings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_types</span><span class="o">=</span><span class="default_value">'pooled_flair_embeddings'</span></em>, <em class="sig-param"><span class="n">pretrain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pooling</span><span class="o">=</span><span class="default_value">'min'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/embeddings/embeddings.html#Embeddings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.embeddings.embeddings.Embeddings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A Embedding class.</p>
+<dl class="py method">
+<dt id="denver.embeddings.embeddings.Embeddings.embed">
+<code class="sig-name descname">embed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/embeddings/embeddings.html#Embeddings.embed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.embeddings.embeddings.Embeddings.embed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function embedding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>embedding: A Embedding as a class embeddings in flair.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.embeddings.embeddings.Embeddings.fine_tuning">
+<code class="sig-name descname">fine_tuning</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">corpus_dir</span><span class="o">=</span><span class="default_value">'./data/corpus'</span></em>, <em class="sig-param"><span class="n">model_dir</span><span class="o">=</span><span class="default_value">'./models'</span></em>, <em class="sig-param"><span class="n">dictionary</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_forward_lm</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hidden_size</span><span class="o">=</span><span class="default_value">1024</span></em>, <em class="sig-param"><span class="n">nlayers</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">embedding_size</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">dropout</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">sequence_length</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">max_epoch</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">patience</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">checkpoint</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/embeddings/embeddings.html#Embeddings.fine_tuning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.embeddings.embeddings.Embeddings.fine_tuning" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>corpus_dir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – Path to corpus folder. the architecture of folder is:
+corpus/
+corpus/train/
+corpus/train/train_split_1
+corpus/train/train_split_2
+corpus/train/…
+corpus/train/train_split_X
+corpus/test.txt
+corpus/valid.txt</p></li>
+<li><p><strong>model_dir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – The folder to save checkpoint</p></li>
+<li><p><strong>dictionary</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The name or path to the use dictionary</p></li>
+<li><p><strong>is_forward_lm</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, use the language model forward</p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of hidden states in RNN, use when fine-tune without pretrain</p></li>
+<li><p><strong>rnn_layers</strong> – The number of RNN layers, use when fine-tune without pretrain</p></li>
+<li><p><strong>embedding_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The size of embedding, use when fine-tune without pretrain</p></li>
+<li><p><strong>dropout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – dropout probability, use when fine-tune without pretrain</p></li>
+<li><p><strong>sequence_length</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Max sequence length</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Batch size</p></li>
+<li><p><strong>learning_rate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Learning rate (default=20)</p></li>
+<li><p><strong>max_epoch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Max epoch (default=20)</p></li>
+<li><p><strong>patience</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Patience is the number of epochs with no improvement the Trainer waits
+until annealing the learning rate</p></li>
+<li><p><strong>checkpoint</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, save checkpoint each epoch when training.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>embedding: A Embedding as a class embeddings in flair.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-denver.embeddings"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="denver.models.html" class="btn btn-neutral float-right" title="denver.models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="denver.data.html" class="btn btn-neutral float-left" title="denver.data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

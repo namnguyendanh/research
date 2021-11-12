@@ -1,0 +1,122 @@
+DATASET:
+  # The path to train dataset
+  train_path: ./data/cometv3/train_1.csv
+  # The path to test dataset
+  test_path: ./data/cometv3/train_1.csv
+  # Define the column text input in DataFrame dataset 
+  text_col: text
+  # Define the column intent label in DataFrame dataset 
+  intent_col: intent
+  # Define the column tag label in DataFrame dataset 
+  tag_col: tags
+  # Define function pre-processing
+  pre_processing:
+    # lower token
+    lowercase_token: True
+    # remove special token, included of punctuation token, characters without vietnamese characters
+    rm_special_token: False
+    # remove url
+    rm_url: False
+    # remove emoji token
+    rm_emoji: False
+    # if not Fasle, using balance data, the params included of {'size': 300, 'replace': False}.
+    balance: False
+
+
+MODEL:
+  input_features:
+    type: text
+    level: word
+    encoder: 
+      name: onenet
+      args:
+        # the number of dropout
+        dropout: 0.5
+        # rnn type
+        rnn_type: 'lstm'
+        # if True, use bidirectional 
+        bidirectional: True
+        # the number of hidden size layer
+        hidden_size: 200
+        # the number of rnn layer
+        num_layers: 2
+        # the number of word embedding dimension
+        word_embedding_dim: 50
+        # The pretrained word embeding {'vi-glove-50d', 'vi-glove-100d'} or path to the word embedding
+        word_pretrained_embedding: vi-glove-50d
+        # the number of char embedding dimension
+        char_embedding_dim: 30
+        # the type of char encoder type
+        char_encoder_type: cnn
+        # the number of filters of cnn
+        num_filters: 128
+        # the ngram filter sizes
+        ngram_filter_sizes: [3]
+        # the activation of convolutional layer
+        conv_layer_activation: relu
+
+  output_features:
+    # Define tag type, examples as: class
+    type: [class, ner]
+  
+
+TRAINING_PARAMS:
+  # The directory to save models
+  base_path: ./models
+  # the file name of model 
+  model_file: denver-onenet.tar.gz
+  # Save model, if True, storages the best model, otherwise storages the final model
+  is_save_best_model: True
+  # The hyper-parameters for training the classify model 
+  hyper_params:
+    # The learning rate
+    learning_rate: 0.001
+    # The batch size
+    batch_size: 128
+    # The number epochs to training
+    num_epochs: 10
+
+HIPEROPT:
+  executor:  # provide executors inclued: [serial, parallel]
+    type: serial
+  goal: maximize  # Goal to optimize the metric; [maximize, minimize]
+  metric: main_score     # metric included [f1, acc, precision, recall, main_score]
+  sampler: 
+    type: pysot    # type included [random, pysot]
+    num_samples: 300  # the number of the examples sampled to experiment.
+  parameters:  # The parameters need to find to optimize the performance. Included: the params of model and training params
+    learning_rate: 
+      range: [1e-3, 1e-2]
+      type: float
+      space: log
+    # batch_size:
+    #   range: [64, 128]
+    #   space: linear
+    #   type: int
+    dropout:
+      range: [0.2, 0.8]
+      type: float
+      space: log
+    hidden_size:
+      range: [200, 512]
+      type: int
+      space: linear
+    char_embedding_dim:
+      range: [30, 70]
+      type: int
+      space: linear 
+    num_filters:
+      range: [100, 300]
+      type: int
+      space: linear
+  run:
+    # :param early_stopping_epochs: The numbers of epochs to run the experiments. 
+    #                               If False, use the numbers of epochs in training params  
+    early_stopping_epochs: 3
+    # :param skip_save_model: Disables saving model weights and hyperparameters each time 
+    #                         the model experiments.
+    skip_save_model: True
+    # :param gpus: (list, default: `None`) list of GPUs that are available
+    #              for training.
+    gpus: [0]
+

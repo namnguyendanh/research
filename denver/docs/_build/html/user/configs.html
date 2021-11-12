@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Configuration File &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial: Building IC models" href="../tutorial/tutorial_ic.html" />
+    <link rel="prev" title="Command Line Interface" href="cli.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pretrained-lookup-table">Pretrained Lookup-Table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pretrained-language-model">Pretrained Language Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pretrained-flair-embeddings">Pretrained Flair Embeddings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pretrained-word-embeddings-glove">Pretrained Word Embeddings (Glove)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ulmfitclassifier">ULMFITClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flairsequencetagger">FlairSequenceTagger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#onenet">OneNet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../denver/denver.html">Denver Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Configuration File</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/user/configs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="configuration-file">
+<h1><a class="toc-backref" href="#id1">Configuration File</a><a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#configuration-file" id="id1">Configuration File</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basics" id="id2">Basics</a></p></li>
+<li><p><a class="reference internal" href="#pretrained-lookup-table" id="id3">Pretrained Lookup-Table</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pretrained-language-model" id="id4">Pretrained Language Model</a></p></li>
+<li><p><a class="reference internal" href="#pretrained-flair-embeddings" id="id5">Pretrained Flair Embeddings</a></p></li>
+<li><p><a class="reference internal" href="#pretrained-word-embeddings-glove" id="id6">Pretrained Word Embeddings (Glove)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#examples" id="id7">Examples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ulmfitclassifier" id="id8">ULMFITClassifier</a></p></li>
+<li><p><a class="reference internal" href="#flairsequencetagger" id="id9">FlairSequenceTagger</a></p></li>
+<li><p><a class="reference internal" href="#onenet" id="id10">OneNet</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="basics">
+<h2><a class="toc-backref" href="#id2">Basics</a><a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>To quickly train, evaluate, and test models, we have provided the CLI for users to use. The
+need to effectively use them is that we have to configure the config file for the model, its
+arguments and training parameters.</p>
+<p>A config file has the following general structures:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DATASET</span></code>: Define the data paths to use for processes.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">train_path</span></code>: Define the path to training data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_path</span></code>: Define the path to test data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text_cols</span></code>: Define the column text input in dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label_cols</span></code>: Define the column label in dataset with the separate problem IC or NER.</p></li>
+</ul>
+<p>With OneNet model, <code class="docutils literal notranslate"><span class="pre">label_cols</span></code> is replaced into <code class="docutils literal notranslate"><span class="pre">intent_cols</span></code> and <code class="docutils literal notranslate"><span class="pre">tag_cols</span></code>. For example,
+like example <a class="reference external" href="../user/configs.html#onenet">config onenet</a>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pre_processing</span></code>: Define the functions to pre-processing.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lowercase_token</span></code>: If True, lower token.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm_special_token</span></code>: If True, remove special token, included of punctuation tokens, characters without vietnamese characters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm_url</span></code>: If True, remove url format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm_emoiji</span></code>: If True, remove emoiji token</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">balance</span></code>: If not False, balacing data. The params comprise: {‘size’: 300, ‘replace’: False}</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MODEL</span></code>: Defines the configuration used by the model, including the following components:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">input_features</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: Define the type of input.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">level</span></code>: Define the level of input.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encoder</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: Defines the name of the model used</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: Define the arguments of the used model.</p></li>
+</ul>
+<p>Depending on the model, we need to define the appropriate arguments for it. For example,
+for model <code class="docutils literal notranslate"><span class="pre">ULMFITClassifier</span></code>, we need <code class="docutils literal notranslate"><span class="pre">loss_func</span></code>, <code class="docutils literal notranslate"><span class="pre">drop_mult</span></code>, <code class="docutils literal notranslate"><span class="pre">average</span></code>, <code class="docutils literal notranslate"><span class="pre">beta</span></code>
+arguments based on the model built. We have the definition for each model based on
+<a class="reference external" href="../denver/denver.learners.html#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner">the following</a> for model <code class="docutils literal notranslate"><span class="pre">ULMFITClassifier</span></code>.</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_features</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: Define the type of output model.</p></li>
+</ul>
+<p>For example, for IC, the type is <code class="docutils literal notranslate"><span class="pre">class</span></code>, and for NER the type is <code class="docutils literal notranslate"><span class="pre">ner</span></code>, and for the joint
+model, the type is a list of corrresponding types, for example with OneNet model, its type is
+[class, ner]</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAINING_MODEL</span></code>: Define the training parameters</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_path</span></code>: Define the dictionary to storages model and logging.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_file</span></code>: Define the file name of model to save.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_save_best_model</span></code>: If True, save the best model, otherwise, save the final model</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hyper_params</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>: Define the learning rate value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">batch_size</span></code>: Define the batch size value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_epochs</span></code>: Define the number of epochs to train.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Additionally, there are some special parameters for each model, such as <code class="docutils literal notranslate"><span class="pre">momentums</span></code> of
+ULMFITClassifier model.</p>
+<p>You can find the specific parameters based on the <code class="docutils literal notranslate"><span class="pre">train()</span></code> function of each model.
+For example, like <a class="reference external" href="../denver/denver.learners.html#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.train">here</a> with ULMFITClassifier, same for other models.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="pretrained-lookup-table">
+<h2><a class="toc-backref" href="#id3">Pretrained Lookup-Table</a><a class="headerlink" href="#pretrained-lookup-table" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pretrained-language-model">
+<h3><a class="toc-backref" href="#id4">Pretrained Language Model</a><a class="headerlink" href="#pretrained-language-model" title="Permalink to this headline">¶</a></h3>
+<p><strong>Cheat Sheet</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wiki</span></code></p></td>
+<td><ul class="simple">
+<li><p>Pretrained LM with Vietnamese Wiki Corpus.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">babe</span></code></p></td>
+<td><ul class="simple">
+<li><p>Pretrained LM with Vietnamese Wiki Corpus + Babe Corpus.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pretrained-flair-embeddings">
+<h3><a class="toc-backref" href="#id5">Pretrained Flair Embeddings</a><a class="headerlink" href="#pretrained-flair-embeddings" title="Permalink to this headline">¶</a></h3>
+<p><strong>Cheat Sheet</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vi-forward-1024-wiki</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Forward-pretrained Embedding with Vietnamese Wiki</div>
+<div class="line">Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vi-backward-1024-wiki</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Backward-pretrained Embedding with Vietnamese Wiki</div>
+<div class="line">Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vi-forward-1024-babe</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Forward-pretrained Embedding with Vietnamese Wiki</div>
+<div class="line">Corpus + Babe Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vi-backward-1024-babe</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Backward-pretrained Embedding with Vietnamese Wiki</div>
+<div class="line">Corpus + Babe Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vi-forward-1024-lowercase-wiki</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Forward-pretrained Embedding with Vietnamese lowercase</div>
+<div class="line">Wiki Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vi-backward-1024-lowercase-wiki</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Backward-pretrained Embedding with Vietnamese lowercase</div>
+<div class="line">Wiki Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vi-forward-1024-lowercase-babe</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Forward-pretrained Embedding with Vietnamese lowercase</div>
+<div class="line-block">
+<div class="line">Wiki Corpus + Babe Corpus</div>
+</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vi-backward-1024-lowercase-babe</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Backward-pretrained Embedding with Vietnamese lowercase</div>
+<div class="line">Wiki Corpus + Babe Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vi-forward-2048-lowercase-wiki</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Forward-pretrained Embedding with Vietnamese lowercase</div>
+<div class="line">Wiki Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vi-backward-2048-lowercase-wiki</span></code></p></td>
+<td><ul>
+<li><div class="line-block">
+<div class="line">Backward-pretrained Embedding with Vietnamese lowercase</div>
+<div class="line">Wiki Corpus</div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">multi-forward</span></code></p></td>
+<td><ul class="simple">
+<li><p>Forward-pretrained Embedding with Multi-language</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">multi-backward</span></code></p></td>
+<td><ul class="simple">
+<li><p>Backward-pretrained Embedding with Multi-language</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">news-forward</span></code></p></td>
+<td><ul class="simple">
+<li><p>Forward-pretrained Embedding with English Corpus</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">news-backward</span></code></p></td>
+<td><ul class="simple">
+<li><p>Backward-pretrained Embedding with English Corpus</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pretrained-word-embeddings-glove">
+<h3><a class="toc-backref" href="#id6">Pretrained Word Embeddings (Glove)</a><a class="headerlink" href="#pretrained-word-embeddings-glove" title="Permalink to this headline">¶</a></h3>
+<p><strong>Cheat Sheet</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vi-glove-50d</span></code></p></td>
+<td><ul class="simple">
+<li><p>Pretrained LM with Babe Corpus.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vi-glove-100d</span></code></p></td>
+<td><ul class="simple">
+<li><p>Pretrained LM with Babe Corpus.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id7">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ulmfitclassifier">
+<h3><a class="toc-backref" href="#id8">ULMFITClassifier</a><a class="headerlink" href="#ulmfitclassifier" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATASET</span><span class="p">:</span>
+    <span class="c1"># The path to train dataset</span>
+    <span class="n">train_path</span><span class="p">:</span> <span class="o">./</span><span class="n">data</span><span class="o">/</span><span class="n">cometv3</span><span class="o">/</span><span class="n">train</span><span class="o">.</span><span class="n">csv</span>
+    <span class="c1"># The path to test dataset</span>
+    <span class="n">test_path</span><span class="p">:</span> <span class="o">./</span><span class="n">data</span><span class="o">/</span><span class="n">cometv3</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">csv</span>
+    <span class="c1"># Define the column input name in DataFrame dataset</span>
+    <span class="n">text_cols</span><span class="p">:</span> <span class="n">text</span>
+    <span class="c1"># Define the column label name in DataFrame dataset</span>
+    <span class="n">label_cols</span><span class="p">:</span> <span class="n">intent</span>
+    <span class="c1"># Define function pre-processing</span>
+    <span class="n">pre_processing</span><span class="p">:</span>
+        <span class="c1"># lower token</span>
+        <span class="n">lowercase_token</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># remove special token, included of punctuation token,</span>
+        <span class="c1"># characters without vietnamese characters</span>
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># remove url</span>
+        <span class="n">rm_url</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># remove emoji token</span>
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># if not Fasle, using balance data,</span>
+        <span class="c1"># the params comprise {&#39;size&#39;: 300, &#39;replace&#39;: False}.</span>
+        <span class="n">balance</span><span class="p">:</span> <span class="kc">False</span> <span class="c1">#{&#39;size&#39;: 300, &#39;replace&#39;: True}</span>
+
+
+<span class="n">MODEL</span><span class="p">:</span>
+    <span class="n">input_features</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">text</span>
+        <span class="n">level</span><span class="p">:</span> <span class="n">word</span>
+        <span class="c1"># The pretrained language model in &#39;babe&#39;, &#39;wiki&#39; with Vietnamese.</span>
+        <span class="c1"># You can setup to a `None` value.</span>
+        <span class="n">pretrain_language_model</span><span class="p">:</span> <span class="s1">&#39;babe&#39;</span>
+    <span class="n">encoder</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">ULMFITClassifier</span>
+        <span class="n">args</span><span class="p">:</span>
+            <span class="c1"># The dropout multiple</span>
+            <span class="n">drop_mult</span><span class="p">:</span> <span class="mf">0.3</span>
+            <span class="c1"># The average in &#39;binary&#39;, &#39;micro&#39;, &#39;macro&#39;, &#39;weighted&#39; or None</span>
+            <span class="n">average</span><span class="p">:</span> <span class="n">weighted</span>
+            <span class="c1"># beta: Parameter for F-beta score</span>
+            <span class="n">beta</span><span class="p">:</span> <span class="mi">1</span>
+
+    <span class="n">output_features</span><span class="p">:</span>
+        <span class="c1"># Define tag type, examples as: class</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="k">class</span>
+
+
+<span class="nc">TRAINING_MODEL</span><span class="p">:</span>
+    <span class="c1"># The directory to save models</span>
+    <span class="n">base_path</span><span class="p">:</span> <span class="o">./</span><span class="n">models</span><span class="o">/</span><span class="n">intent</span>
+    <span class="c1"># the file name of model</span>
+    <span class="n">model_file</span><span class="p">:</span> <span class="n">denver</span><span class="o">-</span><span class="n">viclass</span><span class="o">.</span><span class="n">pkl</span>
+    <span class="c1"># Save model, if True, storages the best model, otherwise storages the final model</span>
+    <span class="n">is_save_best_model</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="c1"># The hyper-parameters to train model</span>
+    <span class="n">hyper_params</span><span class="p">:</span>
+        <span class="c1"># The learning rate</span>
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="mf">2e-2</span>
+        <span class="c1"># The batch size</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="mi">128</span>
+        <span class="c1"># The number epochs to train</span>
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="mi">14</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="flairsequencetagger">
+<h3><a class="toc-backref" href="#id9">FlairSequenceTagger</a><a class="headerlink" href="#flairsequencetagger" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATASET</span><span class="p">:</span>
+    <span class="c1"># The path to train dataset</span>
+    <span class="n">train_path</span><span class="p">:</span> <span class="o">./</span><span class="n">data</span><span class="o">/</span><span class="n">cometv3</span><span class="o">/</span><span class="n">train</span><span class="o">.</span><span class="n">csv</span>
+    <span class="c1"># The path to test dataset</span>
+    <span class="n">test_path</span><span class="p">:</span> <span class="o">./</span><span class="n">data</span><span class="o">/</span><span class="n">cometv3</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">csv</span>
+    <span class="c1"># Define the column input name in DataFrame dataset</span>
+    <span class="n">text_cols</span><span class="p">:</span> <span class="n">text</span>
+    <span class="c1"># Define the column label name in DataFrame dataset</span>
+    <span class="n">label_cols</span><span class="p">:</span> <span class="n">tag</span>
+    <span class="c1"># Define function pre-processing</span>
+    <span class="n">pre_processing</span><span class="p">:</span>
+        <span class="c1"># lower token</span>
+        <span class="n">lowercase_token</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># remove special token, included of punctuation token,</span>
+        <span class="c1"># characters without vietnamese characters</span>
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="c1"># remove url</span>
+        <span class="n">rm_url</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># remove emoji token</span>
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># if not Fasle, using balance data,</span>
+        <span class="c1"># the params included of {&#39;size&#39;: 300, &#39;replace&#39;: False}.</span>
+        <span class="n">balance</span><span class="p">:</span> <span class="kc">False</span>
+
+<span class="n">MODEL</span><span class="p">:</span>
+    <span class="n">input_features</span><span class="p">:</span>
+        <span class="c1"># Define the column input name in DataFrame dataset</span>
+        <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;sentence&#39;</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">text</span>
+        <span class="n">level</span><span class="p">:</span> <span class="n">word</span>
+        <span class="c1"># Define the type embeddings to use</span>
+        <span class="n">embedding_types</span><span class="p">:</span> <span class="n">bi</span><span class="o">-</span><span class="n">pooled_flair_embeddings</span>
+        <span class="c1"># The pretrained embedding Path or str,</span>
+        <span class="c1"># maybe is a List[str] or List[Path] if embedding_types in *bi-xxx_embeddings*</span>
+        <span class="n">pretrain_embedding</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;vi-forward-1024-lowercase-babe&#39;</span><span class="p">,</span> <span class="s1">&#39;vi-backward-1024-lowercase-babe&#39;</span><span class="p">]</span>
+
+    <span class="n">encoder</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">FlairSequenceTagger</span>
+        <span class="n">args</span><span class="p">:</span>
+            <span class="c1"># use_rnn: if True use RNN layer, otherwise use word embeddings directly</span>
+            <span class="n">use_rnn</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="c1"># rnn_layers: The number of RNN layers</span>
+            <span class="n">rnn_layers</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="c1"># hidden_size: number of hidden states in RNN</span>
+            <span class="n">hidden_size</span><span class="p">:</span> <span class="mi">1024</span>
+            <span class="c1"># dropout: dropout probability</span>
+            <span class="n">dropout</span><span class="p">:</span> <span class="mf">0.0</span>
+            <span class="c1"># word_dropout: word dropout probability</span>
+            <span class="n">word_dropout</span><span class="p">:</span> <span class="mf">0.05</span>
+            <span class="c1"># locked_dropout: locked dropout probability</span>
+            <span class="n">locked_dropout</span><span class="p">:</span> <span class="mf">0.5</span>
+            <span class="c1"># reproject_embeddings: if True, adds trainable linear map on top of embedding</span>
+            <span class="c1"># layer. If False, no map. if int, reproject embedding into (int) dims.</span>
+            <span class="n">reproject_embeddings</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="c1"># beta: Parameter for F-beta score</span>
+            <span class="n">beta</span><span class="p">:</span> <span class="mi">1</span>
+
+    <span class="n">decoder</span><span class="p">:</span>
+        <span class="c1"># use_crf: if True use CRF decoder, else project directly to tag space</span>
+        <span class="n">crf</span><span class="p">:</span> <span class="kc">True</span>
+
+    <span class="n">output_features</span><span class="p">:</span>
+        <span class="c1"># Define the column label name in DataFrame dataset</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">ner</span>
+        <span class="c1"># Define the type, examples as: ner</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">ner</span>
+
+
+<span class="n">TRAINING_MODEL</span><span class="p">:</span>
+    <span class="c1"># The directory to save models</span>
+    <span class="n">base_path</span><span class="p">:</span> <span class="o">./</span><span class="n">models</span><span class="o">/</span><span class="n">ner</span>
+    <span class="c1"># the file name of model</span>
+    <span class="n">model_file</span><span class="p">:</span> <span class="n">comet</span><span class="o">-</span><span class="n">viner</span><span class="o">.</span><span class="n">pt</span>
+    <span class="c1"># Save model, if True, storages the best model, otherwise storages the final model</span>
+    <span class="n">is_save_best_model</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="c1"># The hyper-parameters to train model</span>
+    <span class="n">hyper_params</span><span class="p">:</span>
+        <span class="c1"># learning_rate: learning rate,.</span>
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="mf">0.1</span>
+        <span class="c1"># batch_size: Size of batches during training</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="mi">128</span>
+        <span class="c1"># num_epochs: The number of epochs to train.</span>
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="mi">300</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="onenet">
+<h3><a class="toc-backref" href="#id10">OneNet</a><a class="headerlink" href="#onenet" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATASET</span><span class="p">:</span>
+    <span class="c1"># The path to train dataset</span>
+    <span class="n">train_path</span><span class="p">:</span> <span class="o">./</span><span class="n">data</span><span class="o">/</span><span class="n">cometv3</span><span class="o">/</span><span class="n">train</span><span class="o">.</span><span class="n">csv</span>
+    <span class="c1"># The path to test dataset</span>
+    <span class="n">test_path</span><span class="p">:</span> <span class="o">./</span><span class="n">data</span><span class="o">/</span><span class="n">cometv3</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">csv</span>
+    <span class="c1"># Define the column text input in DataFrame dataset</span>
+    <span class="n">text_cols</span><span class="p">:</span> <span class="n">text</span>
+    <span class="c1"># Define the column intent label in DataFrame dataset</span>
+    <span class="n">intent_cols</span><span class="p">:</span> <span class="n">intent</span>
+    <span class="c1"># Define the column tag label in DataFrame dataset</span>
+    <span class="n">tag_cols</span><span class="p">:</span> <span class="n">tag</span>
+    <span class="c1"># Define function pre-processing</span>
+    <span class="n">pre_processing</span><span class="p">:</span>
+        <span class="c1"># lower token</span>
+        <span class="n">lowercase_token</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># remove special token, included of punctuation token,</span>
+        <span class="c1"># characters without vietnamese characters</span>
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="c1"># remove url</span>
+        <span class="n">rm_url</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># remove emoji token</span>
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="c1"># if not Fasle, using balance data,</span>
+        <span class="c1"># the params included of {&#39;size&#39;: 300, &#39;replace&#39;: False}.</span>
+        <span class="n">balance</span><span class="p">:</span> <span class="kc">False</span>
+
+
+<span class="n">MODEL</span><span class="p">:</span>
+    <span class="n">input_features</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">text</span>
+        <span class="n">level</span><span class="p">:</span> <span class="n">word</span>
+
+    <span class="n">encoder</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Onenet</span>
+        <span class="n">args</span><span class="p">:</span>
+            <span class="c1"># the number of dropout</span>
+            <span class="n">dropout</span><span class="p">:</span> <span class="mf">0.5</span>
+            <span class="c1"># rnn type</span>
+            <span class="n">rnn_type</span><span class="p">:</span> <span class="s1">&#39;lstm&#39;</span>
+            <span class="c1"># if True, use bidirectional</span>
+            <span class="n">bidirectional</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="c1"># the number of hidden size layer</span>
+            <span class="n">hidden_size</span><span class="p">:</span> <span class="mi">200</span>
+            <span class="c1"># the number of rnn layer</span>
+            <span class="n">num_layers</span><span class="p">:</span> <span class="mi">2</span>
+            <span class="c1"># the number of word embedding dimension</span>
+            <span class="n">word_embedding_dim</span><span class="p">:</span> <span class="mi">50</span>
+            <span class="c1"># The pretrained word embeding {&#39;vi-glove-50d&#39;, &#39;vi-glove-100d&#39;}</span>
+            <span class="c1"># or path to the word embedding</span>
+            <span class="n">word_pretrained_embedding</span><span class="p">:</span> <span class="n">vi</span><span class="o">-</span><span class="n">glove</span><span class="o">-</span><span class="mi">50</span><span class="n">d</span>
+            <span class="c1"># the number of char embedding dimension</span>
+            <span class="n">char_embedding_dim</span><span class="p">:</span> <span class="mi">30</span>
+            <span class="c1"># the type of char encoder type</span>
+            <span class="n">char_encoder_type</span><span class="p">:</span> <span class="n">cnn</span>
+            <span class="c1"># the number of filters of cnn</span>
+            <span class="n">num_filters</span><span class="p">:</span> <span class="mi">128</span>
+            <span class="c1"># the ngram filter sizes</span>
+            <span class="n">ngram_filter_sizes</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="c1"># the activation of convolutional layer</span>
+            <span class="n">conv_layer_activation</span><span class="p">:</span> <span class="n">relu</span>
+
+    <span class="n">output_features</span><span class="p">:</span>
+        <span class="c1"># Define tag type, examples as: class</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="p">[</span><span class="n">class</span><span class="p">,</span> <span class="n">ner</span><span class="p">]</span>
+
+
+<span class="n">TRAINING_MODEL</span><span class="p">:</span>
+    <span class="c1"># The directory to save models</span>
+    <span class="n">base_path</span><span class="p">:</span> <span class="o">./</span><span class="n">models</span><span class="o">/</span><span class="n">onenet</span>
+    <span class="c1"># the file name of model</span>
+    <span class="n">model_file</span><span class="p">:</span> <span class="n">denver</span><span class="o">-</span><span class="n">onenet</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+    <span class="c1"># Save model, if True, storages the best model, otherwise storages the final model</span>
+    <span class="n">is_save_best_model</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="c1"># The hyper-parameters for training the classify model</span>
+    <span class="n">hyper_params</span><span class="p">:</span>
+        <span class="c1"># The learning rate</span>
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="mf">0.001</span>
+        <span class="c1"># The batch size</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="mi">64</span>
+        <span class="c1"># The number epochs to training</span>
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="mi">200</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../tutorial/tutorial_ic.html" class="btn btn-neutral float-right" title="Tutorial: Building IC models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cli.html" class="btn btn-neutral float-left" title="Command Line Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

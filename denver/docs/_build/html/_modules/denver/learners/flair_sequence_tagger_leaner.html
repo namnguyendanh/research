@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.learners.flair_sequence_tagger_leaner &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../denver/denver.html">Denver Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>denver.learners.flair_sequence_tagger_leaner</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for denver.learners.flair_sequence_tagger_leaner</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8</span>
+<span class="c1"># Copyright (c) 2021 by Phuc Phan</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">denver</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">flair.data</span> <span class="kn">import</span> <span class="n">Sentence</span>
+<span class="kn">from</span> <span class="nn">flair.trainers</span> <span class="kn">import</span> <span class="n">ModelTrainer</span>
+<span class="kn">from</span> <span class="nn">flair.models</span> <span class="kn">import</span> <span class="n">SequenceTagger</span>
+
+<span class="kn">from</span> <span class="nn">denver.constants</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">denver</span> <span class="kn">import</span> <span class="n">MODE_SUPPORTED</span>
+<span class="kn">from</span> <span class="nn">denver.data</span> <span class="kn">import</span> <span class="n">normalize</span>
+<span class="kn">from</span> <span class="nn">denver.data</span> <span class="kn">import</span> <span class="n">DenverDataSource</span>
+<span class="kn">from</span> <span class="nn">denver.learners</span> <span class="kn">import</span> <span class="n">DenverLearner</span>
+<span class="kn">from</span> <span class="nn">denver.utils.utils</span> <span class="kn">import</span> <span class="n">convert_to_BIO</span>
+<span class="kn">from</span> <span class="nn">denver.embeddings.embeddings</span> <span class="kn">import</span> <span class="n">Embeddings</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># pylint: disable=invalid-name</span>
+
+<div class="viewcode-block" id="FlairSequenceTaggerLearner"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner">[docs]</a><span class="k">class</span> <span class="nc">FlairSequenceTaggerLearner</span><span class="p">(</span><span class="n">DenverLearner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class Flair Sequence Tagger Learner. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data_source</span><span class="p">:</span> <span class="n">DenverDataSource</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">tag_type</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;ner&#39;</span><span class="p">,</span> 
+        <span class="n">embeddings</span><span class="p">:</span> <span class="n">Embeddings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">,</span> 
+        <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> 
+        <span class="n">use_rnn</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">rnn_layers</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+        <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> 
+        <span class="n">word_dropout</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> 
+        <span class="n">locked_dropout</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+        <span class="n">reproject_embeddings</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">use_crf</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize a FlairSequenceTagger Learner</span>
+
+<span class="sd">        :param data_source: A DenverDataSource class</span>
+<span class="sd">        :param tag_type: The type of tagging</span>
+<span class="sd">        :param embeddings: The embeddings that you want to train. </span>
+<span class="sd">                           The embeddings should be from denver.embeddings.embeddings.Embedding</span>
+<span class="sd">        :param mode: Mode in {inference, training}</span>
+<span class="sd">        :param model_path: The path to model, (mode = inference)</span>
+<span class="sd">        :param hidden_size: The number of hidden states in RNN</span>
+<span class="sd">        :param use_rnn: If True use RNN layer, otherwise use word embeddings directly</span>
+<span class="sd">        :param rnn_layers: The number of RNN layers</span>
+<span class="sd">        :param dropout: dropout probability</span>
+<span class="sd">        :param word_dropout: word dropout probability</span>
+<span class="sd">        :param locked_dropout: locked dropout probability</span>
+<span class="sd">        :param reproject_embeddings: if True, adds trainable linear map on top of embedding layer. If False, no map.</span>
+<span class="sd">        :param use_crf: If True use CRF decoder, else project directly to tag space</span>
+<span class="sd">        :param beta: Parameter for F-beta score for evaluation and training annealing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FlairSequenceTaggerLearner</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        
+        <span class="c1"># Verify mode option</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MODE_SUPPORTED</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Not support mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Please select 1 among these support modes: </span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODE_SUPPORTED</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_source</span> <span class="o">=</span> <span class="n">data_source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tag_type</span> <span class="o">=</span> <span class="n">tag_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">embeddings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="n">hidden_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_rnn</span> <span class="o">=</span> <span class="n">use_rnn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rnn_layers</span> <span class="o">=</span> <span class="n">rnn_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">dropout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">word_dropout</span> <span class="o">=</span> <span class="n">word_dropout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">locked_dropout</span> <span class="o">=</span> <span class="n">locked_dropout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_crf</span> <span class="o">=</span> <span class="n">use_crf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reproject_embeddings</span> <span class="o">=</span> <span class="n">reproject_embeddings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_corpus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_source</span><span class="o">.</span><span class="n">build_corpus</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_corpus</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="n">INFERENCE_MODE</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">model_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  MODE `inference` need to `model_path` not None.&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;  Load the model from path: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;  The model not supplied or not found.&quot;</span> 
+                    <span class="sa">f</span><span class="s2">&quot;Download model the default model (vi_ner.pt) from out server.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">__name__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;FlairSequenceTagger&#39;</span>
+                        
+    <span class="k">def</span> <span class="nf">_load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">):</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">SequenceTagger</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">model</span>
+        
+<div class="viewcode-block" id="FlairSequenceTaggerLearner.train"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">base_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;./models/&#39;</span><span class="p">,</span> 
+        <span class="n">is_save_best_model</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">model_file</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="n">skip_save_model</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Training the learner</span>
+
+<span class="sd">        :param base_path: Main path to models are saved</span>
+<span class="sd">        :param is_save_best_model: If True save the best model, else save the final model</span>
+<span class="sd">        :param model_file: The file name to save the model</span>
+<span class="sd">        :param learning_rate: Initial learning rate</span>
+<span class="sd">        :param batch_size: Size of batches during training</span>
+<span class="sd">        :param num_epochs: The number of epochs to train</span>
+<span class="sd">        :param skip_save_model: If True, disables saving the model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span>
+
+        <span class="n">tag_dictionary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_corpus</span><span class="o">.</span><span class="n">make_tag_dictionary</span><span class="p">(</span><span class="n">tag_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_type</span><span class="p">)</span>
+
+        <span class="n">tagger</span><span class="p">:</span> <span class="n">SequenceTagger</span> <span class="o">=</span> <span class="n">SequenceTagger</span><span class="p">(</span>
+            <span class="n">hidden_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="n">tag_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_type</span><span class="p">,</span>
+            <span class="n">embeddings</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">embeddings</span><span class="p">,</span>
+            <span class="n">tag_dictionary</span><span class="o">=</span><span class="n">tag_dictionary</span><span class="p">,</span>
+            <span class="n">use_rnn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_rnn</span><span class="p">,</span>
+            <span class="n">rnn_layers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rnn_layers</span><span class="p">,</span>
+            <span class="n">dropout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">,</span>
+            <span class="n">word_dropout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">word_dropout</span><span class="p">,</span>
+            <span class="n">locked_dropout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">locked_dropout</span><span class="p">,</span>
+            <span class="n">reproject_embeddings</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">reproject_embeddings</span><span class="p">,</span>
+            <span class="n">beta</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span>
+            <span class="n">use_crf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_crf</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Initialize trainer</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">ModelTrainer</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span><span class="n">tagger</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_corpus</span><span class="p">)</span>
+        <span class="n">save_final_model</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">is_save_best_model</span> <span class="k">else</span> <span class="kc">True</span>
+        <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+            <span class="n">base_path</span><span class="p">,</span> 
+            <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+            <span class="n">mini_batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+            <span class="c1"># train_with_dev=train_with_dev,</span>
+            <span class="n">embeddings_storage_mode</span><span class="o">=</span><span class="n">denver</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+            <span class="n">anneal_with_restarts</span><span class="o">=</span><span class="n">is_save_best_model</span><span class="p">,</span>
+            <span class="n">save_final_model</span><span class="o">=</span><span class="n">save_final_model</span><span class="p">,</span> 
+            <span class="n">skip_save_model</span><span class="o">=</span><span class="n">skip_save_model</span><span class="p">,</span> 
+            <span class="n">max_epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">tagger</span>
+
+        <span class="k">if</span> <span class="n">is_save_best_model</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">skip_save_model</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">model_file</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="s1">&#39;best-model.pt&#39;</span><span class="p">),</span> 
+                          <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">model_file</span><span class="p">))</span>  
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path to the saved model: </span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">model_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path to the saved model: </span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="s1">&#39;best-model.pt&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">skip_save_model</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">model_file</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="s1">&#39;final-model.pt&#39;</span><span class="p">),</span> 
+                          <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">model_file</span><span class="p">))</span>  
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path to the saved model: </span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="n">model_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path to the saved model: </span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">/</span><span class="s1">&#39;final-model.pt&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FlairSequenceTaggerLearner.predict"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">sample</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> 
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Predicts the tags for the given sequence sample</span>
+
+<span class="sd">        :param sample: The sample need to predict</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;), </span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: Return the predicted tagging</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                        <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">Sentence</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sample</span><span class="o">.</span><span class="n">to_tagged_string</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="FlairSequenceTaggerLearner.predict_on_df"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.predict_on_df">[docs]</a>    <span class="k">def</span> <span class="nf">predict_on_df</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">],</span> 
+        <span class="n">text_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+        <span class="n">label_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Predicts the class labels for a DataFrame or a path to .csv file</span>
+<span class="sd">        </span>
+<span class="sd">        :param data: The path to data or a DataFrame or a path to .csv file</span>
+<span class="sd">        :param text_col: The column name of text data</span>
+<span class="sd">        :param label_col: The column name of label data</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;), </span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: A DataFrame include of columns {&#39;text&#39;, &#39;pred&#39;,&#39;label&#39;(maybe)}.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>
+            <span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">test_path</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                                                    <span class="n">text_col</span><span class="o">=</span><span class="n">text_col</span><span class="p">,</span> 
+                                                    <span class="n">label_col</span><span class="o">=</span><span class="n">label_col</span><span class="p">,</span>
+                                                    <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> 
+                                                    <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                                                    <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> 
+                                                    <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+            <span class="n">data_df</span> <span class="o">=</span> <span class="n">data_source</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data_df</span> <span class="o">=</span> <span class="n">data</span>
+        
+        <span class="k">if</span> <span class="s1">&#39;text&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column name in DataFrame must be include `text` column.&quot;</span><span class="p">)</span>
+        
+        <span class="n">preds</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Get-prediction...&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">))):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span>
+                            <span class="n">sample</span><span class="o">=</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> 
+                            <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> 
+                            <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                            <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> 
+                            <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span>
+                        <span class="p">)</span>
+
+            <span class="n">bio</span> <span class="o">=</span> <span class="n">convert_to_BIO</span><span class="p">(</span><span class="n">entities</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">preds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bio</span><span class="p">)</span>
+        
+        <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">preds</span>
+
+        <span class="k">return</span> <span class="n">data_df</span></div>
+
+<div class="viewcode-block" id="FlairSequenceTaggerLearner.validate"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evaluate the model with dev dataset</span>
+
+<span class="sd">        :returns: dev_eval_result: The result.</span>
+<span class="sd">        :returns: dev_loss: The value loss.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_corpus</span><span class="o">.</span><span class="n">dev</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_corpus</span><span class="o">.</span><span class="n">dev</span><span class="p">)</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">loss</span><span class="p">],</span>
+                <span class="s1">&#39;main_score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">main_score</span><span class="p">],</span>
+                <span class="s1">&#39;detailed_results&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">detailed_results</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">metrics</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`dataset` is None value.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="FlairSequenceTaggerLearner.evaluate"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">DenverDataSource</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">text_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+        <span class="n">label_col</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">,</span>
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evaluate the model with test dataset</span>
+
+<span class="sd">        :param data: The path of eval dataset (.csv) or a DataFrame or a DenverDataSource</span>
+<span class="sd">        :param text_col: The column name of text data</span>
+<span class="sd">        :param label_col: The column name of label data</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;), </span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: Metrics \n</span>
+<span class="sd">                    {\n</span>
+<span class="sd">                        &#39;loss&#39;: loss, \n</span>
+<span class="sd">                        &#39;main_score&#39;: main_score, \n </span>
+<span class="sd">                        &#39;detailed_results&#39;: detailed_results, \n</span>
+<span class="sd">                    } \n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data_source</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;File `</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">` is invalid file format .csv.&quot;</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">test_path</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                                                    <span class="n">text_col</span><span class="o">=</span><span class="n">text_col</span><span class="p">,</span>
+                                                    <span class="n">label_col</span><span class="o">=</span><span class="n">label_col</span><span class="p">,</span>
+                                                    <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> 
+                                                    <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                                                    <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> 
+                                                    <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">data_source</span> <span class="o">=</span> <span class="n">DenverDataSource</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">test_df</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                                                   <span class="n">text_col</span><span class="o">=</span><span class="n">text_col</span><span class="p">,</span>
+                                                   <span class="n">label_col</span><span class="o">=</span><span class="n">label_col</span><span class="p">,</span>
+                                                   <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> 
+                                                    <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                                                    <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> 
+                                                    <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="p">(</span><span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_source</span><span class="o">.</span><span class="n">test</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">data_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_source</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">DenverDataSource</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`data` must be difference to `None` value.&quot;</span><span class="p">)</span>
+
+        <span class="n">corpus</span> <span class="o">=</span> <span class="n">data_source</span><span class="o">.</span><span class="n">build_corpus</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Evaluating...&quot;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">corpus</span><span class="o">.</span><span class="n">test</span><span class="p">)</span>
+
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">loss</span><span class="p">],</span>
+            <span class="s1">&#39;main_score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">main_score</span><span class="p">],</span>
+            <span class="s1">&#39;tag_detailed_results&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">detailed_results</span><span class="p">],</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+<div class="viewcode-block" id="FlairSequenceTaggerLearner.convert_to_rasa_format"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.convert_to_rasa_format">[docs]</a>    <span class="k">def</span> <span class="nf">convert_to_rasa_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entities</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert output in rasa&#39;s format</span>
+<span class="sd">        </span>
+<span class="sd">        :param entities: List entities from the output of process function.</span>
+
+<span class="sd">        :returns: A result rasa format. Example: \n</span>
+<span class="sd">                    [{\n</span>
+<span class="sd">                        &#39;confidence&#39;: confidence,\n</span>
+<span class="sd">                        &#39;end&#39;: end,\n</span>
+<span class="sd">                        &#39;start&#39;: start,\n</span>
+<span class="sd">                        &#39;entity&#39;: entity,\n</span>
+<span class="sd">                        &#39;extractor&#39;: extractor,\n</span>
+<span class="sd">                        &#39;value&#39;: value  \n</span>
+<span class="sd">                    }]\n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">entities_rasa</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entities</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">entity</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">confidence</span> <span class="o">=</span> <span class="n">entity</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">score</span>
+
+            <span class="k">if</span> <span class="s1">&#39;attribute&#39;</span> <span class="ow">in</span> <span class="n">label</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">label</span><span class="p">[</span><span class="n">label</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+                <span class="n">entity_name</span> <span class="o">=</span> <span class="n">label</span><span class="p">[:</span><span class="n">label</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">entity</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
+                <span class="n">entity_name</span> <span class="o">=</span> <span class="n">label</span>
+
+            <span class="n">entity_rasa</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">entity</span><span class="p">[</span><span class="s1">&#39;start_pos&#39;</span><span class="p">],</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">entity</span><span class="p">[</span><span class="s1">&#39;end_pos&#39;</span><span class="p">],</span>
+                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+                <span class="s2">&quot;entity&quot;</span><span class="p">:</span> <span class="n">entity_name</span><span class="p">,</span>
+                <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="n">confidence</span><span class="p">,</span>
+                <span class="s2">&quot;extractor&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="p">}</span>
+            <span class="n">entities_rasa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entity_rasa</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">entities_rasa</span></div>
+
+<div class="viewcode-block" id="FlairSequenceTaggerLearner.process"><a class="viewcode-back" href="../../../denver/denver.learners.html#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">sample</span><span class="p">,</span> 
+        <span class="n">lowercase</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_emoji</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_url</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">rm_special_token</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the results as output of rasa format</span>
+
+<span class="sd">        :param sample: The sample need to calculate uncertainty score.</span>
+<span class="sd">        :param lowercase: If True, lowercase data</span>
+<span class="sd">        :param rm_emoji: If True, replace the emoji token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_url: If True, replace the url token into &lt;space&gt; (&quot; &quot;)</span>
+<span class="sd">        :param rm_special_token: If True, replace the special token into &lt;space&gt; (&quot; &quot;),</span>
+<span class="sd">                                 special token included of punctuation token, characters without vietnamese characters</span>
+
+<span class="sd">        :returns: The results format rasa. Example:</span>
+<span class="sd">                    [{\n</span>
+<span class="sd">                        &#39;confidence&#39;: 0.9994359612464905,\n</span>
+<span class="sd">                        &#39;end&#39;: 19,\n</span>
+<span class="sd">                        &#39;entity&#39;: &#39;object_type&#39;,\n</span>
+<span class="sd">                        &#39;extractor&#39;: &#39;FlairSequenceTagger&#39;,\n</span>
+<span class="sd">                        &#39;start&#39;: 16,\n</span>
+<span class="sd">                        &#39;value&#39;: &#39;cũi&#39;\n</span>
+<span class="sd">                    }]\n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">rm_emoji</span><span class="o">=</span><span class="n">rm_emoji</span><span class="p">,</span> <span class="n">rm_url</span><span class="o">=</span><span class="n">rm_url</span><span class="p">,</span> 
+                    <span class="n">rm_special_token</span><span class="o">=</span><span class="n">rm_special_token</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="n">lowercase</span><span class="p">)</span>
+
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">Sentence</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+        <span class="n">rasa_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_rasa_format</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">tag_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_type</span><span class="p">)[</span><span class="s1">&#39;entities&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">rasa_output</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

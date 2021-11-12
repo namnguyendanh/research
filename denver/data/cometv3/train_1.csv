@@ -1,0 +1,74 @@
+text,intent,tags
+mẫu này thì là của hq phải ko ạ,ask_confirm,O O O O O B-ask_confirm#origin O O O
+nôi này cho bé đến 2 tuổi không,ask_confirm,B-inform#object_type O O O O B-ask_confirm#age_of_use I-ask_confirm#age_of_use O
+Có màu xanh lá k,inform,O B-inform#color I-inform#color I-inform#color O
+Bên bạn có cọ bình sữa ko,inform,O O O B-inform#object_type I-inform#object_type O O
+Bé nhà mình 5.5 tháng chưa biết ngồi thì có dùng đc k ạ?,ask_confirm,O O O B-ask_confirm#age_of_use I-ask_confirm#age_of_use O O O O O O O O O
+Xe này 730 đúng k ạ,ask_confirm,B-inform#object_type O B-ask_confirm#price O O O
+Chiều dày thảm là bao nhiu mm bạn,request#size,O O B-inform#object_type O O O O O
+Ngoài medale ra thì còn hãng nào nhỉ,request#brand,O B-deny#brand O O O O O O
+dang chat voi chatbot hay nguoi the,ask_is_bot,O O O O O O O
+Máy tạo ẩm bên mình có bảo hành k bạn,request#guarantee,B-inform#object_type I-inform#object_type I-inform#object_type O O O O O O O
+thảm này chất liệu j thế ạ?,request#material,B-inform#object_type O O O O O O
+Ghế rung kiza đó có vẫn khuyến mại thảm k b?,request#promotion,O O B-inform#brand O O O O O B-inform#object_type O O
+Vay thui ship cho minh 1 ghe rung mau hồg,inform,O O O O O O B-inform#object_type I-inform#object_type B-inform#color I-inform#color
+Giá là 4tr3 hả b,ask_confirm,O O B-ask_confirm#price O O
+Cái này là cau trượt à b,ask_confirm,O O O B-ask_confirm#object_type I-ask_confirm#object_type O O
+Bạn ơi có ghế ô tô Joie ko?,inform,O O O B-inform#object_type I-inform#object_type I-inform#object_type B-inform#brand O
+shop dùng chatbot ạ,ask_is_bot,O O O O
+Màu đen mình k lấy,deny,B-deny#color I-deny#color O O O
+Đệm ghế bằng j bạn,request#material,O B-inform#object_type O O O
+M mua ghế ăn dặm k phải ghế rung,deny,O O B-inform#object_type I-inform#object_type I-inform#object_type O O B-deny#object_type I-deny#object_type
+Có xe nào 5 năm không shop,inform,O O O B-inform#guarantee I-inform#guarantee O O
+Hời ơi,greet,O O
+Shop cho em hỏi ghế hơi này bn ạ,request#price,O O O O B-inform#object_type I-inform#object_type O O O
+Bé nhà mình 2m chơi đc rồi nhỉ,ask_confirm,O O O B-ask_confirm#age_of_use O O O O
+Ko phai 630k nhe,deny,O O B-deny#price O
+K phải cái máy xe tập đi ạ,deny,O O O O B-deny#object_type I-deny#object_type I-deny#object_type O
+Cái này là túi nhai silicon hả shop,ask_confirm,O O O B-inform#object_type I-inform#object_type B-ask_confirm#material O O
+đúng rồi em a,agree,O O O O
+Và ghế ngồi bằng da hay vải vậy s,ask_confirm,O B-inform#object_type O O O O B-ask_confirm#material O O
+cái này có bảo hành ko em,request#guarantee,O O O O O O O
+e lại muốn lấy thêm cái treo cũi của papa mama,inform,O O O O O O B-inform#object_type I-inform#object_type O B-inform#brand I-inform#brand
+Xe bảo hành 1 năm nếu lỗi nhà sx ah b,ask_confirm,O B-ask_confirm#guarantee I-ask_confirm#guarantee I-ask_confirm#guarantee I-ask_confirm#guarantee O O O O O O
+Bộ chế biến lúc trước báo giá 389 mà chị,ask_confirm,B-inform#object_type I-inform#object_type I-inform#object_type O O O O B-ask_confirm#price O O
+Nôi này nẰm đến đc mấy tháng vậy ạ,request#age_of_use,B-inform#object_type O O O O O O O O
+K phải là thép ạ,deny,O O O B-deny#material O
+Có mau trắng không bạn ?,ask_confirm,O B-ask_confirm#color I-ask_confirm#color O O O
+Cầu trượt nó có cao để các bé 4 5 tuổi chơi đc k,ask_confirm,B-inform#object_type I-inform#object_type O O O O O O B-ask_confirm#age_of_use I-ask_confirm#age_of_use I-ask_confirm#age_of_use O O O
+Bé 2 tuổi ngồi vừa ko ạh,ask_confirm,O B-ask_confirm#age_of_use I-ask_confirm#age_of_use O O O O
+K phải noi nấu chao,deny,O O B-deny#object_type I-deny#object_type I-deny#object_type
+K phải bộ bàn ghế đâu nha,deny,O O B-deny#object_type I-deny#object_type I-deny#object_type O O
+shop để auto trả lời à,ask_is_bot,O O O O O O
+Cua hãng nao vay b,request#brand,O O O O O
+e xin kích thước cầu trượt với ạ,request#size,O O O O B-inform#object_type I-inform#object_type O O
+Hi shopp,greet,O O
+Ko phải đứcg hàn,deny,O O B-deny#origin O
+shop ơi xe tập đi mà shop đang chayh deal km giá bn ạ,request#price,O O B-inform#object_type I-inform#object_type I-inform#object_type O O O O O O O O O
+nôi valdera bảo hành thế nào ?,request#guarantee,B-inform#object_type B-inform#brand O O O O O
+Mastela là cao 57cm à,ask_confirm,B-inform#brand O B-ask_confirm#size I-ask_confirm#size O
+K thích cái màu xám,deny,O O O B-deny#color I-deny#color
+bộ bàn ghế nhựa nguyên sinh giá bao nhiêu ạ?,request#price,B-inform#object_type I-inform#object_type I-inform#object_type B-inform#material O O O O O O
+Bên bạn có bán áo mưa cho bé 2 tuổi ko?,inform,O O O O B-inform#object_type I-inform#object_type O O B-inform#age_of_use I-inform#age_of_use O
+Hàng Đức ấy b,inform,O B-inform#origin O O
+k phải 1690,deny,O O B-deny#price
+Bé nhà mình dưới 1t,inform,O O O O B-inform#age_of_use
+Shop có bán bình sữa 200ml bằng thủy tinh ko ?,inform,O O O B-inform#object_type I-inform#object_type B-inform#size O B-inform#material I-inform#material O O
+Loại vô lăng đúng ko bạn?,ask_confirm,O B-ask_confirm#object_type I-ask_confirm#object_type O O O
+bao hanh 1 nam,inform,B-inform#guarantee I-inform#guarantee I-inform#guarantee I-inform#guarantee
+Nôi Này xuất xứ nc nào,request#origin,B-inform#object_type O O O O O
+cái này là may tiet trung đúng ko ạ,ask_confirm,O O O B-ask_confirm#object_type I-ask_confirm#object_type I-ask_confirm#object_type O O O
+Giá 199k đúng ko shop,ask_confirm,O B-ask_confirm#price O O O
+Alo sh còn thảm hàn quốc k ạ,inform,O O O B-inform#object_type B-inform#origin I-inform#origin O O
+Shop cho m hỏi m vào shopee mua bộ đồ chơi này mà k thấy,request#link,O O O O O O O O B-inform#object_type I-inform#object_type I-inform#object_type O O O O
+thanks để mình xem,thanks,O O O O
+Chieu dai cua giuong bn ha c,request#size,O O O B-inform#object_type O O O
+bên bạn có ghế ô tô nào đang sale k,request#promotion,O O O B-inform#object_type I-inform#object_type I-inform#object_type O O O O
+Chậu này của hãng nào thế b?,request#brand,B-inform#object_type O O O O O O
+Ko phải 900k,deny,O O B-deny#price
+K phải giá úp bình sữa đâu,deny,O O B-deny#object_type I-deny#object_type I-deny#object_type I-deny#object_type O
+Shop còn bình ủ cháo relea loại 700ml ko ạ,inform,O O O B-inform#object_type I-inform#object_type B-inform#brand O B-inform#size O O
+Bạn ơi. Mình muốn hỏi mua máy hút sữa medela pump like new,inform,O O O O O O B-inform#object_type I-inform#object_type I-inform#object_type B-inform#brand I-inform#brand O O
+Shop còn xe đẩy nào 2 chiều giá từ 1-2tr thì giới thiệu cho mình với ah,inform,O O B-inform#object_type I-inform#object_type O O O O O B-inform#price O O O O O O O
+Có treo cũi joie có đèn và nhạc ko e,inform,O B-inform#object_type I-inform#object_type B-inform#brand O O O O O O
+Aloe,greet,O

@@ -1,0 +1,92 @@
+DATASET:
+  # The path to train dataset
+  train_path: ./data/test/train.csv
+  # The path to test dataset
+  test_path: ./data/test/test.csv
+  # Define the column input name in DataFrame dataset 
+  text_col: text
+  # Define the column label name in DataFrame dataset 
+  label_col: intent
+  # Define function pre-processing
+  pre_processing:
+    # lower token
+    lowercase_token: True
+    # remove special token, included of punctuation token, characters without vietnamese characters
+    rm_special_token: True
+    # remove url
+    rm_url: True
+    # remove emoji token
+    rm_emoji: True
+    # if not Fasle, using balance data, the params comprise {'size': 300, 'replace': False}.
+    balance: False #{'size': 300, 'replace': True}
+
+
+MODEL:
+  input_features: 
+    type: text
+    level: word
+    # The pretrained language model in 'babe', 'wiki' with Vietnamese. You can setup to a `None` value. 
+    pretrain_language_model: 'babe'
+    encoder: 
+      name: ulmfit_classifier
+      args:
+        # The dropout multiple
+        drop_mult: 0.3
+        # The average in 'binary', 'micro', 'macro', 'weighted' or None
+        average: weighted
+        # beta: Parameter for F-beta score
+        beta: 1
+
+  output_features:
+    # Define tag type, examples as: class
+    type: class
+  
+
+TRAINING_PARAMS:
+  # The directory to save models
+  base_path: ./models
+  # the file name of model 
+  model_file: denver-ulmfit.ic.pkl
+  # Save model, if True, storages the best model, otherwise storages the final model
+  is_save_best_model: True
+  # The hyper-parameters to train model
+  hyper_params:
+    # The learning rate
+    learning_rate: 2e-2
+    # The batch size
+    batch_size: 128
+    # The number epochs to train
+    num_epochs: 14
+
+
+HIPEROPT:
+  executor:  # provide executors inclued: [serial, parallel]
+    type: serial
+  goal: maximize  # Goal to optimize the metric; [maximize, minimize]
+  metric: f1     # metric included [f1, acc, precision, recall]
+  sampler: 
+    type: pysot    # type included [random, pysot]
+    num_samples: 300  # the number of the examples sampled to experiment.
+  parameters:  # The parameters need to find to optimize the performance. Included: the params of model and training params
+    drop_mult: 
+      range: [0.2, 1.0]
+      type: float
+      space: log
+    learning_rate:
+      range: [1e-3, 1e-1]
+      type: float
+      space: log
+    num_epochs: 
+      range: [10, 30]
+      type: int
+      space: linear
+  run:
+    # :param early_stopping_epochs: The numbers of epochs to run the experiments. 
+    #                               If False, use the numbers of epochs in training params  
+    early_stopping_epochs: False
+    # :param skip_save_model: Disables saving model weights and hyperparameters each time 
+    #                         the model experiments.
+    skip_save_model: True
+    # :param gpus: (list, default: `None`) list of GPUs that are available
+    #               for training.
+    gpus: [0]

@@ -1,0 +1,52 @@
+## Dependency custom framework 
+allennlp@http://minio.dev.ftech.ai/resources-denver-extension-8765e803/allennlp-0.8.3-py3-none-any.whl
+flair@http://minio.dev.ftech.ai/resources-denver-extension-8765e803/flair-0.5.1-py3-none-any.whl
+
+## Pypi libs
+editdistance
+scikit-learn~=0.22.2
+fastai==1.0.60 
+jsonschema
+torch~=1.7.1
+torchvision~=0.8.2
+numpy
+pyyaml
+tabulate
+jsonschema
+gensim
+pandas
+progressbar
+tqdm==4.51.0
+awscli==1.18.133
+botocore==1.17.56
+boto3==1.14.56
+matplotlib==2.2.3
+spacy==2.0.18
+responses==0.10.15
+regex==2018.01.10
+wrapt==1.10.11
+thinc==6.12.1
+pytz==2017.3
+seqeval==0.0.12
+astroid==2.0.4
+pylint==2.2.1
+tensorboard>=1.14.0
+tensorboardX>=1.4
+
+## Document reqs
+sphinx~=3.2.1
+sphinx-intl~=2.0.1
+docutils==0.15
+numpydoc==0.8.0
+PSphinxTheme~=2.0.5
+rinohtype
+sphinx_rtd_theme~=0.5.0
+recommonmark
+sphinx-autodoc-typehints~=1.11.1
+nbsphinx~=0.8.0
+
+## Hiperopt reqs
+bayesmark>=0.0.7
+pySOT==0.3.3
+hiplot==0.1.19
+overrides~=4.1.2

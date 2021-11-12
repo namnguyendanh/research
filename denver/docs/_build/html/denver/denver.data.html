@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.data &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="denver.embeddings" href="denver.embeddings.html" />
+    <link rel="prev" title="Denver Package" href="denver.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="denver.html">Denver Package</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">denver.data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.data.data_source">denver.data.data_source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.data.dataset">denver.data.dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.data.dataset_reader">denver.data.dataset_reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.data.preprocess">denver.data.preprocess</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="denver.embeddings.html">denver.embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.models.html">denver.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.learners.html">denver.learners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.trainers.html">denver.trainers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.utils.html">denver.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.metrics.html">denver.metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.uncertainty_estimate.html">denver.uncertainty_estimate</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="denver.html">Denver Package</a> &raquo;</li>
+        
+      <li>denver.data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/denver/denver.data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="denver-data">
+<h1>denver.data<a class="headerlink" href="#denver-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-denver.data.data_source">
+<span id="denver-data-data-source"></span><h2>denver.data.data_source<a class="headerlink" href="#module-denver.data.data_source" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.data.data_source.DenverDataSource">
+<em class="property">class </em><code class="sig-prename descclassname">denver.data.data_source.</code><code class="sig-name descname">DenverDataSource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'salebot'</span></em>, <em class="sig-param"><span class="n">train</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">test</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/data_source.html#DenverDataSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.data_source.DenverDataSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A DenverDataSource class.</p>
+<dl class="py method">
+<dt id="denver.data.data_source.DenverDataSource.build_corpus">
+<code class="sig-name descname">build_corpus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/data_source.html#DenverDataSource.build_corpus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.data_source.DenverDataSource.build_corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a Corpus dataset same as Corpus in Flair</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>corpus: A Corpus dataset same as Corpus in Flair .</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.data.data_source.DenverDataSource.build_databunch">
+<code class="sig-name descname">build_databunch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">mini_batch_chunk_size</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">pct</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">42</span></em>, <em class="sig-param"><span class="n">num_workers</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/data_source.html#DenverDataSource.build_databunch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.data_source.DenverDataSource.build_databunch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build DataBunch for classifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>int</strong><strong>)</strong> (<em>batch_size</em>) – Batch size</p></li>
+<li><p><strong>mini_batch_chunk_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – If mini-batches are larger than this number,
+they get broken down into chunks of this size for
+processing purposes</p></li>
+<li><p><strong>pct</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The percent for valid set</p></li>
+<li><p><strong>seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of seed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A DataBunch type same as in FastAI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.data.data_source.DenverDataSource.convert_to_bio_file">
+<code class="sig-name descname">convert_to_bio_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">out_file</span><span class="o">=</span><span class="default_value">'train.txt'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/data_source.html#DenverDataSource.convert_to_bio_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.data_source.DenverDataSource.convert_to_bio_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Dataframe to BIO-format and save to temporal file with name is <cite>temp_output.txt</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.data.data_source.DenverDataSource.from_csv">
+<em class="property">classmethod </em><code class="sig-name descname">from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">test_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">intent_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">balance</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">replace</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/data_source.html#DenverDataSource.from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.data_source.DenverDataSource.from_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get DenverDataLoaders from file .csv format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The path to train data</p></li>
+<li><p><strong>test_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The path to test data</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column name of label data</p></li>
+<li><p><strong>intent_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column specify the label of intent with jointly task IC and NER</p></li>
+<li><p><strong>tag_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column specify the label of tagging with jointly task IC NER NER</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+<li><p><strong>balance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, balance train data</p></li>
+<li><p><strong>size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Number of items to sampling</p></li>
+<li><p><strong>replace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Allow or disallow sampling of the same row more than once</p></li>
+<li><p><strong>shuffle</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, shuffle data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.data.data_source.DenverDataSource.from_df">
+<em class="property">classmethod </em><code class="sig-name descname">from_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_df</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">test_df</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">intent_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">balance</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">replace</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/data_source.html#DenverDataSource.from_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.data_source.DenverDataSource.from_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get DenverDataLoaders from DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_df</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – A DataFrame</p></li>
+<li><p><strong>test_df</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – A DataFrame</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column name of label data</p></li>
+<li><p><strong>intent_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column specify the label of intent with jointly task IC and NER</p></li>
+<li><p><strong>tag_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column specify the label of tagging with jointly task IC NER NER</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+<li><p><strong>balance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, balance train data</p></li>
+<li><p><strong>size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Number of the sampled items</p></li>
+<li><p><strong>replace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Allow or disallow sampling of the same row more than once</p></li>
+<li><p><strong>shuffle</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, shuffle data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-denver.data.dataset">
+<span id="denver-data-dataset"></span><h2>denver.data.dataset<a class="headerlink" href="#module-denver.data.dataset" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.data.dataset.DenverDataset">
+<em class="property">class </em><code class="sig-prename descclassname">denver.data.dataset.</code><code class="sig-name descname">DenverDataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/dataset.html#DenverDataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.dataset.DenverDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base Denver Dataset class.</p>
+<dl class="py method">
+<dt id="denver.data.dataset.DenverDataset.get_labels">
+<code class="sig-name descname">get_labels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/dataset.html#DenverDataset.get_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.dataset.DenverDataset.get_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list labels in Dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.data.dataset.DenverDataset.get_sentences">
+<code class="sig-name descname">get_sentences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/dataset.html#DenverDataset.get_sentences"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.dataset.DenverDataset.get_sentences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list sentences in Dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.data.dataset.DenverDataset.normalize_df">
+<code class="sig-name descname">normalize_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_df</span></em>, <em class="sig-param"><span class="n">rm_emoji</span></em>, <em class="sig-param"><span class="n">rm_url</span></em>, <em class="sig-param"><span class="n">rm_special_token</span></em>, <em class="sig-param"><span class="n">lowercase</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/dataset.html#DenverDataset.normalize_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.dataset.DenverDataset.normalize_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize text data frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_df</strong> – A dataframe</p></li>
+<li><p><strong>lowercase</strong> – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> – If True, replace the special token into &lt;space&gt; (” “)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dataframe after normalized.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-denver.data.dataset_reader">
+<span id="denver-data-dataset-reader"></span><h2>denver.data.dataset_reader<a class="headerlink" href="#module-denver.data.dataset_reader" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.data.dataset_reader.OneNetDatasetReader">
+<em class="property">class </em><code class="sig-prename descclassname">denver.data.dataset_reader.</code><code class="sig-name descname">OneNetDatasetReader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token_delimiter</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token_indexers</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lazy</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/dataset_reader.html#OneNetDatasetReader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.dataset_reader.OneNetDatasetReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">allennlp.data.dataset_readers.dataset_reader.DatasetReader</span></code></p>
+<p>Reads instances from a pretokenised file where each line
+and converts it into a <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> suitable for sequence tagging.</p>
+<dl class="py method">
+<dt id="denver.data.dataset_reader.OneNetDatasetReader.get_spans">
+<code class="sig-name descname">get_spans</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">words</span></em>, <em class="sig-param"><span class="n">tags</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/dataset_reader.html#OneNetDatasetReader.get_spans"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.dataset_reader.OneNetDatasetReader.get_spans" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="denver.data.dataset_reader.OneNetDatasetReader.text_to_instance">
+<code class="sig-name descname">text_to_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span></em>, <em class="sig-param"><span class="n">tags</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">span_tags</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">intent</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nlu</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/dataset_reader.html#OneNetDatasetReader.text_to_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.dataset_reader.OneNetDatasetReader.text_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>We take <cite>pre-tokenized</cite> input here, because we don’t have a tokenizer in this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Instance</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-denver.data.preprocess">
+<span id="denver-data-preprocess"></span><h2>denver.data.preprocess<a class="headerlink" href="#module-denver.data.preprocess" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.data.preprocess.BalanceLearn">
+<em class="property">class </em><code class="sig-prename descclassname">denver.data.preprocess.</code><code class="sig-name descname">BalanceLearn</code><a class="reference internal" href="../_modules/denver/data/preprocess.html#BalanceLearn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.preprocess.BalanceLearn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Balancing data for a DataFrame</p>
+<dl class="py method">
+<dt id="denver.data.preprocess.BalanceLearn.subtext_sampling">
+<em class="property">classmethod </em><code class="sig-name descname">subtext_sampling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">'label'</span></em>, <em class="sig-param"><span class="n">replace</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/preprocess.html#BalanceLearn.subtext_sampling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.preprocess.BalanceLearn.subtext_sampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Balancing a dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – A dataframe or a path to the .csv file.</p></li>
+<li><p><strong>size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Number of items to sampling.</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column of a dataframe to sampling data follow it.</p></li>
+<li><p><strong>replace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Allow or disallow sampling of the same row more than once.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="denver.data.preprocess.normalize">
+<code class="sig-prename descclassname">denver.data.preprocess.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/preprocess.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.preprocess.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to normalize text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – The text to normalize</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>txt: The text after normalize.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="denver.data.preprocess.split_data">
+<code class="sig-prename descclassname">denver.data.preprocess.</code><code class="sig-name descname">split_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">pct</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">is_stratify</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">'intent'</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">123</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/preprocess.html#split_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.preprocess.split_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to split data into train and test set follow as the pct value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – A data DataFrame</p></li>
+<li><p><strong>pct</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The ratio to split train/test set</p></li>
+<li><p><strong>is_stratify</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, data is split in a stratified fashion, using this as the class labels.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>train_df: A train DataFrame dataset</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>test_df: A test DataFrame dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="denver.data.preprocess.standardize_df">
+<code class="sig-prename descclassname">denver.data.preprocess.</code><code class="sig-name descname">standardize_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">intent_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag_col</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/data/preprocess.html#standardize_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.data.preprocess.standardize_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standardize a dataframe following the standardization format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – A DataFrame</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column name of label data</p></li>
+<li><p><strong>intent_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column specify the label of intent with jointly task IC and NER</p></li>
+<li><p><strong>tag_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The column specify the label of tagging with jointly task IC NER NER</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>df: A standardized DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-denver.data"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="denver.embeddings.html" class="btn btn-neutral float-right" title="denver.embeddings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="denver.html" class="btn btn-neutral float-left" title="Denver Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

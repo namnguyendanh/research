@@ -1,0 +1,3 @@
+bayesmark>=0.0.7
+pySOT
+hiplot

@@ -1,0 +1,78 @@
+DATASET:
+  # The path to train dataset
+  train_path: ./data/cometv3/train.csv
+  # The path to test dataset
+  test_path: ./data/cometv3/test.csv
+  # Define the column input name in DataFrame dataset 
+  text_col: text
+  # Define the column label name in DataFrame dataset 
+  label_col: tags
+  # Define function pre-processing
+  pre_processing:
+    # lower token
+    lowercase_token: True
+    # remove special token, included of punctuation token, characters without vietnamese characters
+    rm_special_token: False
+    # remove url
+    rm_url: True
+    # remove emoji token
+    rm_emoji: True
+    # if not Fasle, using balance data, the params included of {'size': 300, 'replace': False}.
+    balance: False
+
+MODEL:
+  input_features:
+    # Define the column input name in DataFrame dataset 
+    name: 'sentence'
+    type: text
+    level: word
+    # Define the type embeddings to use
+    embedding_types: bi-pooled_flair_embeddings
+    # The pretrained embedding Path or str, maybe is a List[str] or List[Path] if embedding_types in *bi-xxx_embeddings*
+    pretrain_embedding: ['vi-forward-1024-lowercase-babe', 'vi-backward-1024-lowercase-babe']
+    encoder: 
+      name: flair_sequence_tagger
+      args:
+        # use_rnn: if True use RNN layer, otherwise use word embeddings directly
+        use_rnn: True
+        # rnn_layers: The number of RNN layers
+        rnn_layers: 1
+        # hidden_size: number of hidden states in RNN
+        hidden_size: 1024
+        # dropout: dropout probability
+        dropout: 0.0
+        # word_dropout: word dropout probability
+        word_dropout: 0.05
+        # locked_dropout: locked dropout probability
+        locked_dropout: 0.5
+        # reproject_embeddings: if True, adds trainable linear map on top of embedding layer. If False, no map.
+        # if int, reproject embedding into (int) dims.
+        reproject_embeddings: True
+        # beta: Parameter for F-beta score
+        beta: 1
+    decoder:
+      # use_crf: if True use CRF decoder, else project directly to tag space
+      crf: True
+
+  output_features:
+    # Define the column label name in DataFrame dataset 
+    name: ner
+    # Define the type, examples as: ner
+    type: ner
+
+
+TRAINING_PARAMS:
+  # The directory to save models
+  base_path: ./models/ner
+  # the file name of model 
+  model_file: denver-flair.ner.pt
+  # Save model, if True, storages the best model, otherwise storages the final model
+  is_save_best_model: True
+  # The hyper-parameters to train model
+  hyper_params:
+    # learning_rate: learning rate,.
+    learning_rate: 0.1
+    # batch_size: Size of batches during training
+    batch_size: 48
+    # num_epochs: The number of epochs to train.
+    num_epochs: 300

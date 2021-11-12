@@ -1,0 +1,1029 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>denver.learners &mdash; Denver v0.0.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/modify.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/denver_core.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="denver.trainers" href="denver.trainers.html" />
+    <link rel="prev" title="denver.models" href="denver.models.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/denver_core.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/training_data.html">Training Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/configs.html">Configuration File</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Programatic API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ic.html">Tutorial: Building IC models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_ner.html">Tutorial: Building NER models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial_onenet.html">Tutorial: Building OneNet model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Models Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/ulmfit_cls.html">ULMFITClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flair_seq_tagger.html">FlairSequenceTagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/onenet.html">OneNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/experiment_result.html">Experiment Results</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="denver.html">Denver Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="denver.data.html">denver.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.embeddings.html">denver.embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.models.html">denver.models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">denver.learners</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.learners.base_learner">denver.learners.base_learner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.learners.flair_sequence_tagger_leaner">denver.learners.flair_sequence_tagger_leaner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.learners.onenet_learner">denver.learners.onenet_learner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-denver.learners.ulmfit_cls_learner">denver.learners.ulmfit_cls_learner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="denver.trainers.html">denver.trainers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.utils.html">denver.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.metrics.html">denver.metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denver.uncertainty_estimate.html">denver.uncertainty_estimate</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Etc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../etc/author.html">About the Author</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Denver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="denver.html">Denver Package</a> &raquo;</li>
+        
+      <li>denver.learners</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/denver/denver.learners.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="denver-learners">
+<h1>denver.learners<a class="headerlink" href="#denver-learners" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-denver.learners.base_learner">
+<span id="denver-learners-base-learner"></span><h2>denver.learners.base_learner<a class="headerlink" href="#module-denver.learners.base_learner" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.learners.base_learner.DenverLearner">
+<em class="property">class </em><code class="sig-prename descclassname">denver.learners.base_learner.</code><code class="sig-name descname">DenverLearner</code><a class="reference internal" href="../_modules/denver/learners/base_learner.html#DenverLearner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.base_learner.DenverLearner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract base class for all downstream task in Denver, such as Sequence Tagger and Text Classification.
+Every new type of model must implement these methods.</p>
+<dl class="py method">
+<dt id="denver.learners.base_learner.DenverLearner.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/base_learner.html#DenverLearner.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.base_learner.DenverLearner.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.base_learner.DenverLearner.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/base_learner.html#DenverLearner.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.base_learner.DenverLearner.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the class labels for the given sample.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.base_learner.DenverLearner.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/base_learner.html#DenverLearner.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.base_learner.DenverLearner.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict for a sample and return the rasa format output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.base_learner.DenverLearner.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">save_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/base_learner.html#DenverLearner.save_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.base_learner.DenverLearner.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the model in the <cite>save_file</cite> path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.base_learner.DenverLearner.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/base_learner.html#DenverLearner.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.base_learner.DenverLearner.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Training the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-denver.learners.flair_sequence_tagger_leaner">
+<span id="denver-learners-flair-sequence-tagger-leaner"></span><h2>denver.learners.flair_sequence_tagger_leaner<a class="headerlink" href="#module-denver.learners.flair_sequence_tagger_leaner" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner">
+<em class="property">class </em><code class="sig-prename descclassname">denver.learners.flair_sequence_tagger_leaner.</code><code class="sig-name descname">FlairSequenceTaggerLearner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag_type</span><span class="o">=</span><span class="default_value">'ner'</span></em>, <em class="sig-param"><span class="n">embeddings</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'training'</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hidden_size</span><span class="o">=</span><span class="default_value">1024</span></em>, <em class="sig-param"><span class="n">use_rnn</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rnn_layers</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">dropout</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">word_dropout</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">locked_dropout</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">reproject_embeddings</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_crf</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#denver.learners.base_learner.DenverLearner" title="denver.learners.base_learner.DenverLearner"><code class="xref py py-class docutils literal notranslate"><span class="pre">denver.learners.base_learner.DenverLearner</span></code></a></p>
+<p>A class Flair Sequence Tagger Learner.</p>
+<dl class="py method">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.convert_to_rasa_format">
+<code class="sig-name descname">convert_to_rasa_format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entities</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner.convert_to_rasa_format"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.convert_to_rasa_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert output in rasa’s format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entities</strong> – List entities from the output of process function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>A result rasa format. Example:</p>
+<p>[{</p>
+<blockquote>
+<div><p>‘confidence’: confidence,</p>
+<p>’end’: end,</p>
+<p>’start’: start,</p>
+<p>’entity’: entity,</p>
+<p>’extractor’: extractor,</p>
+<p>’value’: value</p>
+</div></blockquote>
+<p>}]</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">'label'</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model with test dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <a class="reference internal" href="denver.data.html#denver.data.data_source.DenverDataSource" title="denver.data.data_source.DenverDataSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">DenverDataSource</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The path of eval dataset (.csv) or a DataFrame or a DenverDataSource</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of label data</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>Metrics</p>
+<p>{</p>
+<blockquote>
+<div><p>‘loss’: loss,</p>
+<p>’main_score’: main_score,</p>
+<p>’detailed_results’: detailed_results,</p>
+</div></blockquote>
+<p>}</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the tags for the given sequence sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The sample need to predict</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return the predicted tagging</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.predict_on_df">
+<code class="sig-name descname">predict_on_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner.predict_on_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.predict_on_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the class labels for a DataFrame or a path to .csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – The path to data or a DataFrame or a path to .csv file</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The column name of label data</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A DataFrame include of columns {‘text’, ‘pred’,’label’(maybe)}.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the results as output of rasa format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> – The sample need to calculate uncertainty score.</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>The results format rasa. Example:
+[{</p>
+<blockquote>
+<div><p>‘confidence’: 0.9994359612464905,</p>
+<p>’end’: 19,</p>
+<p>’entity’: ‘object_type’,</p>
+<p>’extractor’: ‘FlairSequenceTagger’,</p>
+<p>’start’: 16,</p>
+<p>’value’: ‘cũi’</p>
+</div></blockquote>
+<p>}]</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">base_path</span><span class="o">=</span><span class="default_value">'./models/'</span></em>, <em class="sig-param"><span class="n">is_save_best_model</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">model_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">skip_save_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Training the learner</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – Main path to models are saved</p></li>
+<li><p><strong>is_save_best_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True save the best model, else save the final model</p></li>
+<li><p><strong>model_file</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The file name to save the model</p></li>
+<li><p><strong>learning_rate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Initial learning rate</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Size of batches during training</p></li>
+<li><p><strong>num_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of epochs to train</p></li>
+<li><p><strong>skip_save_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, disables saving the model</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/flair_sequence_tagger_leaner.html#FlairSequenceTaggerLearner.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.flair_sequence_tagger_leaner.FlairSequenceTaggerLearner.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model with dev dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dev_eval_result: The result.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dev_loss: The value loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-denver.learners.onenet_learner">
+<span id="denver-learners-onenet-learner"></span><h2>denver.learners.onenet_learner<a class="headerlink" href="#module-denver.learners.onenet_learner" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.learners.onenet_learner.OnenetLearner">
+<em class="property">class </em><code class="sig-prename descclassname">denver.learners.onenet_learner.</code><code class="sig-name descname">OnenetLearner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'training'</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dropout</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">rnn_type</span><span class="o">=</span><span class="default_value">'lstm'</span></em>, <em class="sig-param"><span class="n">bidirectional</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hidden_size</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">num_layers</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">word_embedding_dim</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">word_pretrained_embedding</span><span class="o">=</span><span class="default_value">'vi-glove-50d'</span></em>, <em class="sig-param"><span class="n">char_embedding_dim</span><span class="o">=</span><span class="default_value">30</span></em>, <em class="sig-param"><span class="n">char_encoder_type</span><span class="o">=</span><span class="default_value">'cnn'</span></em>, <em class="sig-param"><span class="n">num_filters</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">ngram_filter_sizes</span><span class="o">=</span><span class="default_value">[3]</span></em>, <em class="sig-param"><span class="n">conv_layer_activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="n">device</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#denver.learners.base_learner.DenverLearner" title="denver.learners.base_learner.DenverLearner"><code class="xref py py-class docutils literal notranslate"><span class="pre">denver.learners.base_learner.DenverLearner</span></code></a></p>
+<p>A class OnenetLearner.</p>
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.convert_to_rasa_format">
+<code class="sig-name descname">convert_to_rasa_format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.convert_to_rasa_format"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.convert_to_rasa_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert outputs in rasa’s format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outputs</strong> – Dict output from the output of predict function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>A result rasa format. Example:</p>
+<p>[{</p>
+<blockquote>
+<div><p>‘confidence’: confidence,</p>
+<p>’end’: end,</p>
+<p>’start’: start,</p>
+<p>’entity’: entity,</p>
+<p>’extractor’: extractor,</p>
+<p>’value’: value</p>
+</div></blockquote>
+<p>}]</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">intent_col</span><span class="o">=</span><span class="default_value">'intent'</span></em>, <em class="sig-param"><span class="n">tag_col</span><span class="o">=</span><span class="default_value">'tag'</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model with test dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <a class="reference internal" href="denver.data.html#denver.data.data_source.DenverDataSource" title="denver.data.data_source.DenverDataSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">DenverDataSource</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The path to data .csv or a DataFrame or a DenverDataSource</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>intent_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of intent label data</p></li>
+<li><p><strong>tag_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of tags label data</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>Metrics format:</p>
+<p>{</p>
+<blockquote>
+<div><p>‘precision’: 1.0,</p>
+<p>’recall’: 1.0,</p>
+<p>’f1-score’: 1.0</p>
+</div></blockquote>
+<p>}</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.get_classes">
+<code class="sig-name descname">get_classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.get_classes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.get_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all classes of intent and tags</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dict {‘intent’: classes of intent, ‘tag’: classes of tag}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the output for the given sequence sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The sample</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return the output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.predict_on_df">
+<code class="sig-name descname">predict_on_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">intent_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tag_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.predict_on_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.predict_on_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the class labels for a DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – The path to data or a DataFrame</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>intent_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The column name of intent label data</p></li>
+<li><p><strong>tags_col</strong> – The column name of tags label data</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A DataFrame include of columns ‘text’, ‘pred’, ‘label’(maybe)).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the results as output of rasa format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The sample need to inference</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>The results format rasa. Example:</p>
+<p>{</p>
+<blockquote>
+<div><blockquote>
+<div><p>“intent”: {</p>
+<blockquote>
+<div><p>“name”: query_kb,</p>
+<p>”confidence”: 0.9999999</p>
+<p>},</p>
+</div></blockquote>
+<p>”entities”: [</p>
+<blockquote>
+<div><p>{</p>
+<blockquote>
+<div><blockquote>
+<div><p>‘confidence’: 0.9994359612464905,</p>
+<p>’end’: 3,</p>
+<p>’entity’: ‘object_type’,</p>
+<p>’extractor’: ‘OnetNet’,</p>
+<p>’start’: 0,</p>
+<p>’value’: ‘cũi’</p>
+</div></blockquote>
+<p>},</p>
+</div></blockquote>
+</div></blockquote>
+<p>],</p>
+<p>”text”: cũi này còn k sh</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">base_path</span><span class="o">=</span><span class="default_value">'./models/'</span></em>, <em class="sig-param"><span class="n">is_save_best_model</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">model_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">optimizer</span><span class="o">=</span><span class="default_value">'adam'</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">grad_norm</span><span class="o">=</span><span class="default_value">5.0</span></em>, <em class="sig-param"><span class="n">patience</span><span class="o">=</span><span class="default_value">75</span></em>, <em class="sig-param"><span class="n">skip_save_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">skip_save_log</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train and save the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Main path to models are saved</p></li>
+<li><p><strong>is_save_best_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True save the best model, else save the final model</p></li>
+<li><p><strong>model_file</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The file name to save the model</p></li>
+<li><p><strong>learning_rate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Initial learning rate</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Size of batches during training</p></li>
+<li><p><strong>num_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of epochs to train.</p></li>
+<li><p><strong>grad_norm</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – If provided, gradient norms will be rescaled to have a maximum of this value.</p></li>
+<li><p><strong>patience</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of epochs to be patient before early stopping: the training is stopped
+after patience epochs with no improvement. If given, it must be &gt; 0. If None,
+early stopping is disabled.</p></li>
+<li><p><strong>skip_save_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, disables saving the model</p></li>
+<li><p><strong>skip_save_log</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, disable saving the training log</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.onenet_learner.OnenetLearner.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/onenet_learner.html#OnenetLearner.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.onenet_learner.OnenetLearner.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-denver.learners.ulmfit_cls_learner">
+<span id="denver-learners-ulmfit-cls-learner"></span><h2>denver.learners.ulmfit_cls_learner<a class="headerlink" href="#module-denver.learners.ulmfit_cls_learner" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner">
+<em class="property">class </em><code class="sig-prename descclassname">denver.learners.ulmfit_cls_learner.</code><code class="sig-name descname">ULMFITClassificationLearner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'training'</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">drop_mult</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">'weighted'</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#denver.learners.base_learner.DenverLearner" title="denver.learners.base_learner.DenverLearner"><code class="xref py py-class docutils literal notranslate"><span class="pre">denver.learners.base_learner.DenverLearner</span></code></a></p>
+<p>A class ULMFIT Classification Learner.</p>
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.convert_to_rasa_format">
+<code class="sig-name descname">convert_to_rasa_format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">classes</span></em>, <em class="sig-param"><span class="n">output</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.convert_to_rasa_format"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.convert_to_rasa_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert output in rasa’s format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>classes</strong> – List of model classes</p></li>
+<li><p><strong>output</strong> – Output in fastai format</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A result rasa format.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">'label'</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">with_confusion_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">save_dir</span><span class="o">=</span><span class="default_value">'./evaluation/'</span></em>, <em class="sig-param"><span class="n">save_name</span><span class="o">=</span><span class="default_value">'confusion-matrix'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Batch evalute the model and storage confustion matrics chart</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <a class="reference internal" href="denver.data.html#denver.data.data_source.DenverDataSource" title="denver.data.data_source.DenverDataSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">DenverDataSource</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The path to data or a DataFrame</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of label data</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+<li><p><strong>confusion_matrix</strong> – If True, save confusion matrix figure</p></li>
+<li><p><strong>save_cm_dir</strong> – The path directory to save confusion-matrix’s image</p></li>
+<li><p><strong>save_cm_dir</strong> – The file name to save confusion-matrix’s image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retuns</dt>
+<dd class="field-even"><p>Metrics format:</p>
+<p>{</p>
+<blockquote>
+<div><p>‘acc’: acc,</p>
+<p>‘f1’: f1,</p>
+<p>‘precision’: precision,</p>
+<p>‘recall’: recall</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.evaluate_by_step">
+<code class="sig-name descname">evaluate_by_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">'label'</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">with_confusion_matrix</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">save_dir</span><span class="o">=</span><span class="default_value">'./evaluation/'</span></em>, <em class="sig-param"><span class="n">save_name</span><span class="o">=</span><span class="default_value">'confusion-matrix'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.evaluate_by_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.evaluate_by_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evalute the model and storage confustion matrics chart</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <a class="reference internal" href="denver.data.html#denver.data.data_source.DenverDataSource" title="denver.data.data_source.DenverDataSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">DenverDataSource</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – The path to data (.csv) or a DataFrame or a DenverDataSource</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of label data</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+<li><p><strong>with_confusion_matrix</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, save confusion matrix figure</p></li>
+<li><p><strong>save_cm_dir</strong> – The path directory to save confusion-matrix’s image</p></li>
+<li><p><strong>save_cm_dir</strong> – The file name to save confusion-matrix’s image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retuns</dt>
+<dd class="field-even"><p>Metrics format:</p>
+<p>{</p>
+<blockquote>
+<div><p>‘acc’: acc,</p>
+<p>‘f1’: f1,</p>
+<p>‘precision’: precision,</p>
+<p>‘recall’: recall</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">moms</span><span class="o">=</span><span class="default_value">0.7, 0.8</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model on data and learn using learning rate, momentums and number of epochs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>learning_rate</strong> – learning rate</p></li>
+<li><p><strong>moms</strong> – A dict momentums rate, use when train model IC with fastai</p></li>
+<li><p><strong>num_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of epochs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.freeze">
+<code class="sig-name descname">freeze</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.freeze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.freeze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Freeze up to last layer group.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.freeze_to">
+<code class="sig-name descname">freeze_to</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_layers</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.freeze_to"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.freeze_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Freeze layers up to layer group <cite>num_layers</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.get_classes">
+<code class="sig-name descname">get_classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.get_classes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.get_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a model class list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List classes from model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.get_uncertainty_score">
+<code class="sig-name descname">get_uncertainty_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">n_times</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.get_uncertainty_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.get_uncertainty_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get uncertainty score of the prediction of a sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> – The sample need to calculate uncertainty score.</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+<li><p><strong>n_times</strong> – The times prediction to calculate uncertainty score.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>Return the value format:</p>
+<p>{</p>
+<blockquote>
+<div><p>‘text’: sample,</p>
+<p>’intent’: iclass,</p>
+<p>’uncertainty_score’: value,</p>
+<p>’method’: method.__name__</p>
+</div></blockquote>
+<p>}</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">with_dropout</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the class labels for the given sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the sample need to predict</p></li>
+<li><p><strong>with_dropout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, use mc dropout during the predict</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return predicted class, label and probabilities.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict_on_df">
+<code class="sig-name descname">predict_on_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.predict_on_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict_on_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Batch predicts the class labels for a DataFrame or a path to .csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – The path to data or a DataFrame or a path to .csv file</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The column name of label data</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A DataFrame include of columns {‘text’, ‘pred’, ‘uncertainty_score’}.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict_on_df_by_step">
+<code class="sig-name descname">predict_on_df_by_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">text_col</span><span class="o">=</span><span class="default_value">'text'</span></em>, <em class="sig-param"><span class="n">label_col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">with_dropout</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">with_uncertainty</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.predict_on_df_by_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict_on_df_by_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the class labels for a DataFrame or a path to .csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – The path to data or a DataFrame or a path to .csv file</p></li>
+<li><p><strong>text_col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The column name of text data</p></li>
+<li><p><strong>label_col</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The column name of label data</p></li>
+<li><p><strong>with_dropout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, use mc dropout during the predict.</p></li>
+<li><p><strong>with_uncertainty_score</strong> – if True, consist of uncertainty score</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A DataFrame include of columns {‘text’, ‘pred’, ‘uncertainty_score’}.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict_with_mc_dropout">
+<code class="sig-name descname">predict_with_mc_dropout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">n_times</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.predict_with_mc_dropout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.predict_with_mc_dropout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the class labels for the given sampels with MC Dropout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> – the sample need to predict</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+<li><p><strong>n_times</strong> – the times prediction to calculate with MC Dropout.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return List predicted class, label and probabilities of <cite>n_times</cite> times.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">lowercase</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_emoji</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_url</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rm_special_token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the results as output of rasa format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> – The sample need to calculate uncertainty score.</p></li>
+<li><p><strong>lowercase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, lowercase data</p></li>
+<li><p><strong>rm_emoji</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the emoji token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the url token into &lt;space&gt; (” “)</p></li>
+<li><p><strong>rm_special_token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, replace the special token into &lt;space&gt; (” “),
+special token included of punctuation token, characters without vietnamese characters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result format rasa</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">base_path</span></em>, <em class="sig-param"><span class="n">save_file</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_file</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – Save the model to the save_file</p></li>
+<li><p><strong>overwrite</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, overwrite the old file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">base_path</span><span class="o">=</span><span class="default_value">'./models/'</span></em>, <em class="sig-param"><span class="n">is_save_best_model</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">model_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="o">=</span><span class="default_value">15</span></em>, <em class="sig-param"><span class="n">skip_save_model</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">clean_lm</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Training the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – Main path to models are saved</p></li>
+<li><p><strong>is_save_best_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True save the best model, else save the final model</p></li>
+<li><p><strong>model_file</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The file name to save the model</p></li>
+<li><p><strong>learning_rate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – learning rate</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – batch size</p></li>
+<li><p><strong>num_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of epochs</p></li>
+<li><p><strong>skip_save_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, disables saving the model</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.unfreeze">
+<code class="sig-name descname">unfreeze</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.unfreeze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.unfreeze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unfreeze entire model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/denver/learners/ulmfit_cls_learner.html#ULMFITClassificationLearner.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#denver.learners.ulmfit_cls_learner.ULMFITClassificationLearner.validate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The calculated loss and the metrics of the current model on the given valid data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-denver.learners"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="denver.trainers.html" class="btn btn-neutral float-right" title="denver.trainers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="denver.models.html" class="btn btn-neutral float-left" title="denver.models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, NLP Team, Ftech.AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
